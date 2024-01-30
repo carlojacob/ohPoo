@@ -50,10 +50,11 @@ struct HomeView: View {
 					}
 				}
 				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
-					if !saveButtonPressed {
+					if saveButtonPressed {
+						saveButtonPressed = false
+					} else {
 						pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
 					}
-					saveButtonPressed = false
 				}) {
 					NavigationStack {
 						SettingsView(isSettingsDisplayed: $isSettingsDisplayed, timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
