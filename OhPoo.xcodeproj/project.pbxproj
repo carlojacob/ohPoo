@@ -14,6 +14,12 @@
 		235A0AF82B694C0E00C72155 /* OhPooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0AF72B694C0E00C72155 /* OhPooUITests.swift */; };
 		235A0AFA2B694C0E00C72155 /* OhPooUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0AF92B694C0E00C72155 /* OhPooUITestsLaunchTests.swift */; };
 		235A0B152B694FBC00C72155 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B142B694FBC00C72155 /* HomeView.swift */; };
+		235A0B192B6950C300C72155 /* PooTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B182B6950C300C72155 /* PooTheme.swift */; };
+		235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B1C2B6950F200C72155 /* PooTimer.swift */; };
+		235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B1E2B69512600C72155 /* PooTimerView.swift */; };
+		235A0B212B69516A00C72155 /* TimerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B202B69516A00C72155 /* TimerArc.swift */; };
+		235A0B232B69523A00C72155 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B222B69523A00C72155 /* CountdownView.swift */; };
+		235A0B252B6952B100C72155 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B242B6952B100C72155 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		235A0AF72B694C0E00C72155 /* OhPooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhPooUITests.swift; sourceTree = "<group>"; };
 		235A0AF92B694C0E00C72155 /* OhPooUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhPooUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		235A0B142B694FBC00C72155 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		235A0B182B6950C300C72155 /* PooTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTheme.swift; sourceTree = "<group>"; };
+		235A0B1C2B6950F200C72155 /* PooTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTimer.swift; sourceTree = "<group>"; };
+		235A0B1E2B69512600C72155 /* PooTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTimerView.swift; sourceTree = "<group>"; };
+		235A0B202B69516A00C72155 /* TimerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArc.swift; sourceTree = "<group>"; };
+		235A0B222B69523A00C72155 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		235A0B242B6952B100C72155 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +106,8 @@
 		235A0ADB2B694C0D00C72155 /* OhPoo */ = {
 			isa = PBXGroup;
 			children = (
-				235A0B142B694FBC00C72155 /* HomeView.swift */,
-				235A0ADC2B694C0D00C72155 /* OhPooApp.swift */,
+				235A0B162B69503A00C72155 /* Models */,
+				235A0B172B69504100C72155 /* Views */,
 				235A0AE02B694C0E00C72155 /* Assets.xcassets */,
 				235A0AE22B694C0E00C72155 /* Preview Content */,
 			);
@@ -125,6 +137,28 @@
 				235A0AF92B694C0E00C72155 /* OhPooUITestsLaunchTests.swift */,
 			);
 			path = OhPooUITests;
+			sourceTree = "<group>";
+		};
+		235A0B162B69503A00C72155 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				235A0B182B6950C300C72155 /* PooTheme.swift */,
+				235A0B1C2B6950F200C72155 /* PooTimer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		235A0B172B69504100C72155 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				235A0B142B694FBC00C72155 /* HomeView.swift */,
+				235A0ADC2B694C0D00C72155 /* OhPooApp.swift */,
+				235A0B1E2B69512600C72155 /* PooTimerView.swift */,
+				235A0B202B69516A00C72155 /* TimerArc.swift */,
+				235A0B222B69523A00C72155 /* CountdownView.swift */,
+				235A0B242B6952B100C72155 /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
+				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
+				235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */,
+				235A0B212B69516A00C72155 /* TimerArc.swift in Sources */,
+				235A0B232B69523A00C72155 /* CountdownView.swift in Sources */,
+				235A0B192B6950C300C72155 /* PooTheme.swift in Sources */,
 				235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */,
 				235A0B152B694FBC00C72155 /* HomeView.swift in Sources */,
 			);
