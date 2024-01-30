@@ -61,7 +61,6 @@ struct HomeView: View {
 								ToolbarItem(placement: .topBarLeading) {
 									Button("Cancel") {
 										isSettingsDisplayed = false
-										pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
 									}
 								}
 								ToolbarItem(placement: .topBarTrailing) {
