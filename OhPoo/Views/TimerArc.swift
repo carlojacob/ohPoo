@@ -20,7 +20,7 @@ struct TimerArc: Shape {
 	}
 	
 	private var progressAngle: Angle {
-		Angle(degrees: max(-359.0, min(-1, -degreesPerSecond * Double(currentTime))))
+		Angle(degrees: -degreesPerSecond * Double(currentTime))
 	}
 
 	func path(in rect: CGRect) -> Path {
