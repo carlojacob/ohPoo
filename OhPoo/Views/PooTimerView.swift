@@ -19,7 +19,7 @@ struct PooTimerView: View {
 				.ignoresSafeArea()
 			Circle()
 				.strokeBorder(lineWidth: 30)
-				.foregroundStyle(Color.brown) // Need to make pooColor available
+				.foregroundStyle(theme.color)
 				.overlay {
 					Circle()
 						.strokeBorder(lineWidth: 18)
@@ -29,7 +29,7 @@ struct PooTimerView: View {
 				.overlay {
 					TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
 						.rotation(Angle(degrees: -90))
-						.stroke(Color.brown, lineWidth: 15)
+						.stroke(theme.color, lineWidth: 15)
 				}
 			CountdownView(timerText: pooTimer.timerText)
 		}
