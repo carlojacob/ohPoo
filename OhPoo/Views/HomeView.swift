@@ -13,6 +13,7 @@ struct HomeView: View {
 	
 	@State private var isSettingsDisplayed: Bool = false
 	@StateObject var pooTimer = PooTimer()
+	@State private var initialEditingTimerDuration: Double = 0.0
 	
 	var body: some View {
 		NavigationStack {
@@ -39,6 +40,7 @@ struct HomeView: View {
 				.toolbar {
 					Button(action: {
 						isSettingsDisplayed = true
+						initialEditingTimerDuration = pooTimer.timerDurationInMinutesAsDouble
 					}) {
 						Image(systemName: "gearshape")
 							.foregroundColor(theme.color)
@@ -52,6 +54,7 @@ struct HomeView: View {
 								ToolbarItem(placement: .topBarLeading) {
 									Button("Cancel") {
 										isSettingsDisplayed = false
+										pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
 									}
 								}
 								ToolbarItem(placement: .topBarTrailing) {
@@ -61,6 +64,7 @@ struct HomeView: View {
 								}
 							})
 					}
+					.interactiveDismissDisabled()
 				}
 			}
 		}
