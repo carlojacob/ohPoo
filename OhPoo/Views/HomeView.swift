@@ -11,9 +11,11 @@ struct HomeView: View {
 	let fullScreenFont: Font = .custom("fullscreen", size: 250)
 	let theme = PooTheme()
 	
-	@State private var isSettingsDisplayed: Bool = false
 	@StateObject var pooTimer = PooTimer()
+	
+	@State private var isSettingsDisplayed: Bool = false
 	@State private var initialEditingTimerDuration: Double = 0.0
+	@State private var saveButtonPressed: Bool = false
 	
 	var body: some View {
 		NavigationStack {
@@ -47,7 +49,12 @@ struct HomeView: View {
 							.fontWeight(.bold)
 					}
 				}
-				.sheet(isPresented: $isSettingsDisplayed) {
+				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
+					if !saveButtonPressed {
+						pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
+					}
+					saveButtonPressed = false
+				}) {
 					NavigationStack {
 						SettingsView(isSettingsDisplayed: $isSettingsDisplayed, timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
 							.toolbar(content: {
@@ -60,11 +67,11 @@ struct HomeView: View {
 								ToolbarItem(placement: .topBarTrailing) {
 									Button("Save") {
 										isSettingsDisplayed = false
+										saveButtonPressed = true
 									}
 								}
 							})
 					}
-					.interactiveDismissDisabled()
 				}
 			}
 		}
