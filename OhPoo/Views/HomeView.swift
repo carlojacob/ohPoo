@@ -13,6 +13,7 @@ struct HomeView: View {
 	
 	@StateObject var pooTimer = PooTimer()
 	
+	@State private var homeScreenTimeValue: Int = 3
 	@State private var isSettingsDisplayed: Bool = false
 	@State private var initialEditingTimerDuration: Double = 0.0
 	@State private var saveButtonPressed: Bool = false
@@ -35,7 +36,7 @@ struct HomeView: View {
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
-					Text("\(pooTimer.timerDuration / 60) minutes")
+					Text("\(homeScreenTimeValue) minutes")
 						.foregroundStyle(theme.color)
 						.fontWeight(.semibold)
 				}
@@ -68,6 +69,7 @@ struct HomeView: View {
 									Button("Save") {
 										isSettingsDisplayed = false
 										saveButtonPressed = true
+										homeScreenTimeValue = Int(pooTimer.timerDurationInMinutesAsDouble)
 									}
 								}
 							})
