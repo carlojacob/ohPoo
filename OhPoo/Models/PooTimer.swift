@@ -9,7 +9,6 @@ import Foundation
 
 @MainActor
 class PooTimer: ObservableObject {
-	let defaultDuration = 180
 	@Published var secondsRemaining = 180
 	@Published var timerText = ""
 	@Published var timerDuration: Int
@@ -17,7 +16,6 @@ class PooTimer: ObservableObject {
 	private var timer: Timer?
 	private var frequency: TimeInterval { 1.0 / 60.0 }
 	private var timerStopped = false
-	private var timerDurationInMinutes: Int { timerDuration / 60 }
 	var timerDurationInMinutesAsDouble: Double {
 		get {
 			Double(timerDuration / 60)
