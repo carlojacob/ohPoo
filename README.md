@@ -1,6 +1,6 @@
 # Poo Timer
 
-Simple app to prevent users from getting lost in a Social Media blackhole while on the toilet.
+Simple Timer app to reduce time-wasting while using the bathroom.
 
 Look out for more updates to come!
 
