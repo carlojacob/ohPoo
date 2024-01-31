@@ -59,6 +59,7 @@ struct HomeView: View {
 				}) {
 					NavigationStack {
 						SettingsView(isSettingsDisplayed: $isSettingsDisplayed, timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
+							.navigationTitle("Settings")
 							.toolbar(content: {
 								ToolbarItem(placement: .topBarLeading) {
 									Button("Cancel") {
@@ -73,6 +74,8 @@ struct HomeView: View {
 									}
 								}
 							})
+							.fontWeight(.semibold)
+							.foregroundStyle(theme.color)
 					}
 				}
 			}

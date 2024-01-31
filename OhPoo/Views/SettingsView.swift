@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+	let theme = PooTheme()
+	
 	@Binding var isSettingsDisplayed: Bool
 	@Binding var timerDurationInMinutesAsDouble: Double
 	private var timerDurationInMinutes: Int {
@@ -22,10 +24,13 @@ struct SettingsView: View {
 						Slider(value: $timerDurationInMinutesAsDouble, in: 3...30, step: 1) {
 							Text("Time")
 						}
+						.tint(theme.color)
 						Spacer()
 						Text("\(timerDurationInMinutes) minutes")
 					}
 				}
+				.fontWeight(.semibold)
+				.foregroundStyle(theme.color)
 			}
 		}
 	}
