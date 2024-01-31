@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PooTimerView: View {
 	var timerDuration: Int = 180
 	let theme = PooTheme()
+	
+	private var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
 	
 	@StateObject var pooTimer = PooTimer()
 	
@@ -42,16 +45,22 @@ struct PooTimerView: View {
 		}
 	}
 	
+	@MainActor
 	private func startPoo() {
 		pooTimer.reset(timerDuration: timerDuration)
 		pooTimer.startPoo()
+		fartPlayer.seek(to: .zero)
+		// MARK: Fart audio control
+		// Commented to prevent noise each time you open this view
+		// fartPlayer.play()
 	}
 	
+	@MainActor
 	private func stopPoo() {
 		pooTimer.stopPoo()
 	}
 }
 
 #Preview {
-    PooTimerView(timerDuration: 180, pooTimer: PooTimer(timerDuration: 180))
+	PooTimerView(pooTimer: PooTimer(timerDuration: 180))
 }
