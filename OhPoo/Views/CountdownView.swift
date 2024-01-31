@@ -16,11 +16,8 @@ struct CountdownView: View {
 			.foregroundStyle(Color.black)
 			.monospaced()
 	}
-}
-
-struct CountdownView_Previews: PreviewProvider {
-	static var pooTimer = PooTimer()
-	static var previews: some View {
-		CountdownView(timerText: pooTimer.timerText)
 	}
-}
+
+#Preview {
+	CountdownView(timerText: "3:00")
+	}
