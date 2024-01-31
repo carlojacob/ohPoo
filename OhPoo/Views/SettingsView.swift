@@ -33,6 +33,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var lengthInMinutesAsDouble: Double = 3.0
+	
 	static var previews: some View {
 		SettingsView(isSettingsDisplayed: .constant(true), timerDurationInMinutesAsDouble: .constant(lengthInMinutesAsDouble))
 	}

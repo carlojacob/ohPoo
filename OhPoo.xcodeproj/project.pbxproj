@@ -20,6 +20,9 @@
 		235A0B212B69516A00C72155 /* TimerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B202B69516A00C72155 /* TimerArc.swift */; };
 		235A0B232B69523A00C72155 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B222B69523A00C72155 /* CountdownView.swift */; };
 		235A0B252B6952B100C72155 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B242B6952B100C72155 /* SettingsView.swift */; };
+		235A0B272B69C0D100C72155 /* AVPlayer+getAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */; };
+		235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B292B69CB5B00C72155 /* fart-05.mp3 */; };
+		235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		235A0B202B69516A00C72155 /* TimerArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArc.swift; sourceTree = "<group>"; };
 		235A0B222B69523A00C72155 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		235A0B242B6952B100C72155 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+getAudio.swift"; sourceTree = "<group>"; };
+		235A0B292B69CB5B00C72155 /* fart-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fart-05.mp3"; sourceTree = "<group>"; };
+		235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				235A0B172B69504100C72155 /* Views */,
 				235A0AE02B694C0E00C72155 /* Assets.xcassets */,
 				235A0AE22B694C0E00C72155 /* Preview Content */,
+				235A0B282B69CB2200C72155 /* Resources */,
 			);
 			path = OhPoo;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 			children = (
 				235A0B182B6950C300C72155 /* PooTheme.swift */,
 				235A0B1C2B6950F200C72155 /* PooTimer.swift */,
+				235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +167,15 @@
 				235A0B242B6952B100C72155 /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		235A0B282B69CB2200C72155 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				235A0B292B69CB5B00C72155 /* fart-05.mp3 */,
+				235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +284,8 @@
 			files = (
 				235A0AE42B694C0E00C72155 /* Preview Assets.xcassets in Resources */,
 				235A0AE12B694C0E00C72155 /* Assets.xcassets in Resources */,
+				235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */,
+				235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235A0B272B69C0D100C72155 /* AVPlayer+getAudio.swift in Sources */,
 				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
 				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
 				235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */,
