@@ -9,7 +9,6 @@ import Foundation
 
 @MainActor
 class PooTimer: ObservableObject {
-//	@Published var secondsElapsed = 0
 	let defaultDuration = 180
 	@Published var secondsRemaining = 180
 	@Published var timerText = ""
@@ -59,7 +58,6 @@ class PooTimer: ObservableObject {
 				  !timerStopped else { return }
 			let secondsElapsed = Int(Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
 			timeElapsed = secondsElapsed
-//			self.secondsElapsed = secondsElapsed
 			timeRemaining = max(timerDuration - timeElapsed, 0)
 			self.secondsRemaining = timeRemaining
 			timerText = timeText
