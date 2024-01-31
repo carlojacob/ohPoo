@@ -26,4 +26,3 @@ To be added.
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
 
 ### Known Issues
-1. Background color not covering full Timer screen.
