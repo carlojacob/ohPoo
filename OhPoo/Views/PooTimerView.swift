@@ -18,8 +18,6 @@ struct PooTimerView: View {
 	
 	var body: some View {
 		ZStack {
-			Color(theme.lightColor)
-				.ignoresSafeArea()
 			Circle()
 				.strokeBorder(lineWidth: 30)
 				.foregroundStyle(theme.color)
@@ -43,6 +41,7 @@ struct PooTimerView: View {
 		.onDisappear {
 			stopPoo()
 		}
+		.background(Color(theme.lightColor))
 	}
 	
 	@MainActor
