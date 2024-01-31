@@ -10,7 +10,6 @@ Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `Cou
 To be added.
 
 ## Future Work
-1. Apply theme colors to Timer screen.
 1. Update "Back" button title to "Home" on Timer screen.
 1. Add AppIcon(s).
 1. Add slowly filling image for duration of timer.

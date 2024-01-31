@@ -46,7 +46,6 @@ struct HomeView: View {
 						initialEditingTimerDuration = pooTimer.timerDurationInMinutesAsDouble
 					}) {
 						Image(systemName: "gearshape")
-							.foregroundColor(theme.color)
 							.fontWeight(.bold)
 					}
 				}
@@ -75,11 +74,11 @@ struct HomeView: View {
 								}
 							})
 							.fontWeight(.semibold)
-							.foregroundStyle(theme.color)
 					}
 				}
 			}
 		}
+		.tint(theme.color)
 	}
 }
 

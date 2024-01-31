@@ -24,7 +24,6 @@ struct SettingsView: View {
 						Slider(value: $timerDurationInMinutesAsDouble, in: 3...30, step: 1) {
 							Text("Time")
 						}
-						.tint(theme.color)
 						Spacer()
 						Text("\(timerDurationInMinutes) minutes")
 					}
