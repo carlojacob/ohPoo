@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PooTimerView: View {
-	var timerDuration: Int
+	var timerDuration: Int = 180
 	let theme = PooTheme()
 	
 	@StateObject var pooTimer = PooTimer()
