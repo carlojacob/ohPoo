@@ -11,8 +11,12 @@ struct HomeView: View {
 	let fullScreenFont: Font = .custom("fullscreen", size: 250)
 	let theme = PooTheme()
 	
-	@State private var isSettingsDisplayed: Bool = false
 	@StateObject var pooTimer = PooTimer()
+	
+	@State private var homeScreenTimeValue: Int = 3
+	@State private var isSettingsDisplayed: Bool = false
+	@State private var initialEditingTimerDuration: Double = 0.0
+	@State private var saveButtonPressed: Bool = false
 	
 	var body: some View {
 		NavigationStack {
@@ -32,20 +36,27 @@ struct HomeView: View {
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
-					Text("\(pooTimer.timerDuration / 60) minutes")
+					Text("\(homeScreenTimeValue) minutes")
 						.foregroundStyle(theme.color)
 						.fontWeight(.semibold)
 				}
 				.toolbar {
 					Button(action: {
 						isSettingsDisplayed = true
+						initialEditingTimerDuration = pooTimer.timerDurationInMinutesAsDouble
 					}) {
 						Image(systemName: "gearshape")
 							.foregroundColor(theme.color)
 							.fontWeight(.bold)
 					}
 				}
-				.sheet(isPresented: $isSettingsDisplayed) {
+				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
+					if saveButtonPressed {
+						saveButtonPressed = false
+					} else {
+						pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
+					}
+				}) {
 					NavigationStack {
 						SettingsView(isSettingsDisplayed: $isSettingsDisplayed, timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
 							.toolbar(content: {
@@ -57,6 +68,8 @@ struct HomeView: View {
 								ToolbarItem(placement: .topBarTrailing) {
 									Button("Save") {
 										isSettingsDisplayed = false
+										saveButtonPressed = true
+										homeScreenTimeValue = Int(pooTimer.timerDurationInMinutesAsDouble)
 									}
 								}
 							})
