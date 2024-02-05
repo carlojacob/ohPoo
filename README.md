@@ -14,7 +14,6 @@ Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `Cou
   &nbsp
   <img src="https://i.imgur.com/nzYVmd1.png" alt="Home Screen" width="200"/>
 </p>
-<p style="text-align: center;">From left to right: Home Screen, Settings Screen, Timer Screen.</p>
 <p align="center">From left to right: Home Screen, Settings Screen, Timer Screen.</p>
 
 
