@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-	let fullScreenFont: Font = .custom("fullscreen", size: 250)
+	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let theme = PooTheme()
 	
 	@StateObject var pooTimer = PooTimer()
@@ -25,7 +25,7 @@ struct HomeView: View {
 					.ignoresSafeArea()
 				VStack {
 					Text("💩")
-						.font(fullScreenFont)
+						.font(homeScreenEmojiFont)
 					NavigationLink {
 						PooTimerView(timerDuration: pooTimer.timerDuration)
 					} label: {
