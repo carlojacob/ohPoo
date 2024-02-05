@@ -31,6 +31,7 @@ Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `Cou
 1. Add loading view, for any delay.
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
 1. Extract custom font sizes into separate files.
+1. Make home screen emoji font size reactive to screen size, e.g. minimum of screen width or height plus padding.
 
 ### Known Issues
 1. Colors aren't the same in dark mode.
