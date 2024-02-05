@@ -36,4 +36,3 @@ Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `Cou
 ### Known Issues
 1. Colors aren't the same in dark mode.
 1. Audio does not play in background.
-1. Audio does not play in silent mode.
