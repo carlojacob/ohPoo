@@ -15,7 +15,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 		do {
 			try audioSession.setCategory(.playback, options: .mixWithOthers)
-			print("Audio set up fine")
 			try audioSession.setActive(true)
 		} catch {
 			print("Unable to set up audio player: \(error.localizedDescription)")
