@@ -7,7 +7,15 @@ Look out for more updates to come!
 Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `CountdownView.swift` to indicate where audio is prevented from playing by default. Uncomment lines of the form `// ____Player.play()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
 
 ## Screenshots
-To be added.
+<p align="center">
+  <img src="https://i.imgur.com/3brmglz.png" alt="Home Screen" width="200"/>
+  &nbsp
+  <img src="https://i.imgur.com/auu9eYL.png" alt="Home Screen" width="200"/>
+  &nbsp
+  <img src="https://i.imgur.com/nzYVmd1.png" alt="Home Screen" width="200"/>
+</p>
+<p style="text-align: center;">From left to right: Home Screen, Settings Screen, Timer Screen.</p>
+
 
 ## Future Work
 1. Update "Back" button title to "Home" on Timer screen.
