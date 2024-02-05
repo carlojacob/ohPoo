@@ -16,7 +16,7 @@ struct CountdownView: View {
 	var body: some View {
 		Text(playFlushAtZero())
 			.font(.custom("fullscreen", size: 90))
-			.foregroundStyle(Color.black)
+			.foregroundStyle(PooTheme.pooColor.color)
 			.monospaced()
 	}
 	

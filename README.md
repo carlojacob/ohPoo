@@ -22,5 +22,9 @@ To be added.
 1. Store audio filenames in enum, rather than as hardcoded strings.
 1. Add loading view, for any delay.
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
+1. Extract custom font sizes into separate files.
 
 ### Known Issues
+1. Colors aren't the same in dark mode.
+1. Audio does not play in background.
+1. Audio does not play in silent mode.
