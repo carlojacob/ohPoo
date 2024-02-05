@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class PooTimer: ObservableObject {
 	@Published var secondsRemaining = 180
-	@Published var timerText = ""
+	@Published var timerText = "3:00"
 	@Published var timerDuration: Int
 	
 	private var timer: Timer?
