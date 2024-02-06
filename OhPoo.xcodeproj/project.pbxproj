@@ -23,6 +23,7 @@
 		235A0B272B69C0D100C72155 /* AVPlayer+getAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */; };
 		235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B292B69CB5B00C72155 /* fart-05.mp3 */; };
 		235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */; };
+		235A0B4B2B715D2F00C72155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B4A2B715D2F00C72155 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+getAudio.swift"; sourceTree = "<group>"; };
 		235A0B292B69CB5B00C72155 /* fart-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fart-05.mp3"; sourceTree = "<group>"; };
 		235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2.mp3"; sourceTree = "<group>"; };
+		235A0B492B6BCC9400C72155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		235A0B4A2B715D2F00C72155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +115,13 @@
 		235A0ADB2B694C0D00C72155 /* OhPoo */ = {
 			isa = PBXGroup;
 			children = (
+				235A0B492B6BCC9400C72155 /* Info.plist */,
 				235A0B162B69503A00C72155 /* Models */,
 				235A0B172B69504100C72155 /* Views */,
 				235A0AE02B694C0E00C72155 /* Assets.xcassets */,
 				235A0AE22B694C0E00C72155 /* Preview Content */,
 				235A0B282B69CB2200C72155 /* Resources */,
+				235A0B4A2B715D2F00C72155 /* AppDelegate.swift */,
 			);
 			path = OhPoo;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				235A0B4B2B715D2F00C72155 /* AppDelegate.swift in Sources */,
 				235A0B272B69C0D100C72155 /* AVPlayer+getAudio.swift in Sources */,
 				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
 				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
@@ -479,11 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhPoo/Preview Content\"";
+				DEVELOPMENT_TEAM = 8R6NX9ZG6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OhPoo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,6 +505,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlojacob.OhPoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -507,11 +517,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OhPoo/Preview Content\"";
+				DEVELOPMENT_TEAM = 8R6NX9ZG6T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OhPoo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -524,6 +537,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlojacob.OhPoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
