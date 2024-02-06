@@ -12,8 +12,6 @@ struct PooTimerView: View {
 	var timerDuration: Int = 180
 	let theme = PooTheme()
 	
-	private var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
-	
 	@StateObject var pooTimer = PooTimer()
 	
 	var body: some View {
@@ -48,10 +46,6 @@ struct PooTimerView: View {
 	private func startPoo() {
 		pooTimer.reset(timerDuration: timerDuration)
 		pooTimer.startPoo()
-		fartPlayer.seek(to: .zero)
-		// MARK: Fart audio control
-		// Commented to prevent noise each time you open this view
-		// fartPlayer.play()
 	}
 	
 	@MainActor

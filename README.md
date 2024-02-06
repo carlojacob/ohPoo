@@ -4,7 +4,7 @@ Simple Timer app to reduce time-wasting while using the bathroom.
 
 Look out for more updates to come!
 
-Note: Pragma marks (`// MARK:`) have been added to `PooTimerView.swift` and `CountdownView.swift` to indicate where audio is prevented from playing by default. Uncomment lines of the form `// ____Player.play()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
+Note: Pragma marks (`// MARK:`) have been added to `PooTimer.swift` to indicate where audio is prevented from playing by default. Uncomment function calls of the form `// play____()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
 
 ## Screenshots
 <p align="center">

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 @MainActor
 class PooTimer: ObservableObject {
@@ -57,9 +58,32 @@ class PooTimer: ObservableObject {
 			let secondsElapsed = Int(Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
 			timeElapsed = secondsElapsed
 			timeRemaining = max(timerDuration - timeElapsed, 0)
+			// MARK: Fart audio control
+			// Commented to prevent noise by default each time you start a Poo
+			if timeRemaining == timerDuration {
+//				playFart()
+			}
+			// MARK: Flush audio control
+			// Commented to prevent noise by default each time you finish a Poo
+			if timeRemaining == 0 {
+//				playFlush()
+				timerStopped = true
+			}
 			self.secondsRemaining = timeRemaining
 			timerText = timeText
 		}
+	}
+	
+	private func playFart() {
+		var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
+		fartPlayer.seek(to: .zero)
+		fartPlayer.play()
+	}
+	
+	private func playFlush() {
+		var flushPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "toilet-flush-2") }
+		flushPlayer.seek(to: .zero)
+		flushPlayer.play()
 	}
 	
 	func reset(timerDuration: Int) {
