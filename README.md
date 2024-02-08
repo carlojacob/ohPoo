@@ -1,9 +1,3 @@
-<!-- Add list style preferences -->
-<!-- <style type="text/css">
-    /* ol ol { list-style-type: lower-alpha; } */
-    /* ol ol ol { list-style-type: lower-roman; } */
-</style> -->
-
 # Poo Timer
 
 Simple Timer app to reduce time-wasting while using the bathroom.
