@@ -1,7 +1,7 @@
 <!-- Add list style preferences -->
 <style type="text/css">
     ol ol { list-style-type: lower-alpha; }
-    ol ol ol { list-style-type: lower-roman; }
+    /* ol ol ol { list-style-type: lower-roman; } */
 </style>
 
 # Poo Timer
@@ -51,12 +51,12 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Extract custom font sizes into separate files.
 1. Create one source of truth for `pooTimer`, `theme`, `localNotifications`
 1. Reactive sizing:
-  1. Home screen emoji font size, e.g. minimum of screen width or height plus padding.
-  1. Remaining time on Timer screen.
+    1. Home screen emoji font size, e.g. minimum of screen width or height plus padding.
+    1. Remaining time on Timer screen.
 1. Change Timer value to text after time has expired.
 1. Notification permissions:
-  1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
-  1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
+    1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
+    1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
 1. Create custom audio for end of timer notification.
 1. Research whether navigating to my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
 
