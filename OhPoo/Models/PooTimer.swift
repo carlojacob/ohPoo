@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 @MainActor
 class PooTimer: ObservableObject {
@@ -30,6 +31,10 @@ class PooTimer: ObservableObject {
 		"\(String(timeRemaining/60)):\(String(format: "%02d", timeRemaining%60))"
 	}
 	private var startDate: Date?
+	
+	// Use to ensure audio plays just once, while a second elapses.
+	private var fartPlayed: Bool = false
+	private var flushPlayed: Bool = false
 	
 	init(timerDuration: Int = 180, timeRemaining: Int = 180) {
 		self.timerDuration = timerDuration
@@ -57,9 +62,34 @@ class PooTimer: ObservableObject {
 			let secondsElapsed = Int(Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
 			timeElapsed = secondsElapsed
 			timeRemaining = max(timerDuration - timeElapsed, 0)
+			// MARK: Fart audio control
+			// Commented to prevent noise by default each time you start a Poo
+			if timeRemaining == timerDuration && !fartPlayed {
+//				playFart()
+				fartPlayed = true
+			}
+			// MARK: Flush audio control
+			// Commented to prevent noise by default each time you finish a Poo
+			if timeRemaining == 0 && !flushPlayed {
+//				playFlush()
+				flushPlayed = true
+				timerStopped = true
+			}
 			self.secondsRemaining = timeRemaining
 			timerText = timeText
 		}
+	}
+	
+	private func playFart() {
+		var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
+		fartPlayer.seek(to: .zero)
+		fartPlayer.play()
+	}
+	
+	private func playFlush() {
+		var flushPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "toilet-flush-2") }
+		flushPlayer.seek(to: .zero)
+		flushPlayer.play()
 	}
 	
 	func reset(timerDuration: Int) {

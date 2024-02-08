@@ -11,10 +11,11 @@ import AVFoundation
 struct PooTimerView: View {
 	var timerDuration: Int = 180
 	let theme = PooTheme()
-	
-	private var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
+	let localNotifications = LocalNotifications()
 	
 	@StateObject var pooTimer = PooTimer()
+	
+	@Environment(\.scenePhase) private var scenePhase
 	
 	var body: some View {
 		ZStack {
@@ -42,16 +43,26 @@ struct PooTimerView: View {
 			stopPoo()
 		}
 		.background(Color(theme.lightColor))
+		// When inactive, the flush sound plays, even with Silent mode on.
+		// When we go to background phase the flush sound doesn't play,
+		// so we set up a local notification to tell the user.
+		.onChange(of: scenePhase, initial: false) { oldState, newState in
+			let toBackground = newState == .background
+			if pooTimer.secondsRemaining > 0 {
+				if toBackground {
+					// Remove existing notifications before setting up a new one.
+					localNotifications.removePendingLocalNotifications()
+					localNotifications.scheduleLocalNotification(secondsRemaining: pooTimer.secondsRemaining)
+					print("Removed old pending notifs and scheduled a new one after moving from \(oldState) to \(newState): at \(Date())") // TODO: Remove
+				}
+			}
+		}
 	}
 	
 	@MainActor
 	private func startPoo() {
 		pooTimer.reset(timerDuration: timerDuration)
 		pooTimer.startPoo()
-		fartPlayer.seek(to: .zero)
-		// MARK: Fart audio control
-		// Commented to prevent noise each time you open this view
-		// fartPlayer.play()
 	}
 	
 	@MainActor
