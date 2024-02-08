@@ -10,6 +10,9 @@ import SwiftUI
 struct HomeView: View {
 	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let theme = PooTheme()
+	let localNotifications = LocalNotifications()
+	
+	@Environment(\.scenePhase) private var scenePhase
 	
 	@StateObject var pooTimer = PooTimer()
 	
@@ -79,6 +82,19 @@ struct HomeView: View {
 			}
 		}
 		.tint(theme.color)
+		.onAppear {
+			// Request/check permission to send notifications.
+			localNotifications.registerLocalNotification()
+		}
+		.onChange(of: scenePhase, initial: false) { _, newState in
+			// Remove any pending notifications when we return to active.
+			let toActive = newState == .active
+			
+			if toActive {
+				localNotifications.removePendingLocalNotifications()
+				print("Removed pending notifications: at \(Date())") // TODO: Remove
+			}
+		}
 	}
 }
 
