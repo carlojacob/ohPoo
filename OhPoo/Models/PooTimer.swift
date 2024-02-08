@@ -32,6 +32,10 @@ class PooTimer: ObservableObject {
 	}
 	private var startDate: Date?
 	
+	// Use to ensure audio plays just once, while a second elapses.
+	private var fartPlayed: Bool = false
+	private var flushPlayed: Bool = false
+	
 	init(timerDuration: Int = 180, timeRemaining: Int = 180) {
 		self.timerDuration = timerDuration
 		self.timeRemaining = timerDuration
@@ -60,13 +64,15 @@ class PooTimer: ObservableObject {
 			timeRemaining = max(timerDuration - timeElapsed, 0)
 			// MARK: Fart audio control
 			// Commented to prevent noise by default each time you start a Poo
-			if timeRemaining == timerDuration {
+			if timeRemaining == timerDuration && !fartPlayed {
 //				playFart()
+				fartPlayed = true
 			}
 			// MARK: Flush audio control
 			// Commented to prevent noise by default each time you finish a Poo
-			if timeRemaining == 0 {
+			if timeRemaining == 0 && !flushPlayed {
 //				playFlush()
+				flushPlayed = true
 				timerStopped = true
 			}
 			self.secondsRemaining = timeRemaining
