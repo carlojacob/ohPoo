@@ -1,8 +1,8 @@
 <!-- Add list style preferences -->
-<style type="text/css">
-    ol ol { list-style-type: lower-alpha; }
+<!-- <style type="text/css">
+    /* ol ol { list-style-type: lower-alpha; } */
     /* ol ol ol { list-style-type: lower-roman; } */
-</style>
+</style> -->
 
 # Poo Timer
 
