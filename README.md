@@ -36,7 +36,6 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 
 ## Future Work
 1. Update "Back" button title to "Home" on Timer screen.
-1. Add AppIcon(s).
 1. Add slowly filling image for duration of timer.
 1. Allow initial timer arc to show a small white section at the top.
 1. Settings additions:
