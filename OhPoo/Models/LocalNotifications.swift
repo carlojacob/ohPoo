@@ -28,8 +28,15 @@ class LocalNotifications {
 		// Initialize notification center
 		let center = UNUserNotificationCenter.current()
 		
+		// Setup custom sound for notification, or use default
+		var sound: UNNotificationSound
+		let soundName = "toilet-flush-2-short"
+		let soundExtension = "mp3"
+		if let _ = Bundle.main.url(forResource: soundName, withExtension: soundExtension) {
+			sound = UNNotificationSound(named: UNNotificationSoundName("\(soundName).\(soundExtension)"))
+		} else { sound = UNNotificationSound.default }
+		
 		// Setup notification content
-		let sound = UNNotificationSound.default // Placeholder for custom sound
 		let content = UNMutableNotificationContent()
 		content.title = "Poo Timer Up!"
 		content.body = "OK, you've been here long enough. Time to clean up and get outta here!"
