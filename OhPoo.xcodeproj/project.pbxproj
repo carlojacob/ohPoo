@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2328092F2B7424CC00F0A1B1 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */; };
+		232809322B75781000F0A1B1 /* toilet-flush-2-short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 232809302B75728100F0A1B1 /* toilet-flush-2-short.mp3 */; };
 		235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0ADC2B694C0D00C72155 /* OhPooApp.swift */; };
 		235A0AE12B694C0E00C72155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235A0AE02B694C0E00C72155 /* Assets.xcassets */; };
 		235A0AE42B694C0E00C72155 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235A0AE32B694C0E00C72155 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		232809302B75728100F0A1B1 /* toilet-flush-2-short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2-short.mp3"; sourceTree = "<group>"; };
 		235A0AD92B694C0D00C72155 /* OhPoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhPoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		235A0ADC2B694C0D00C72155 /* OhPooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhPooApp.swift; sourceTree = "<group>"; };
 		235A0AE02B694C0E00C72155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		235A0B282B69CB2200C72155 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				232809302B75728100F0A1B1 /* toilet-flush-2-short.mp3 */,
 				235A0B292B69CB5B00C72155 /* fart-05.mp3 */,
 				235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */,
 			);
@@ -294,6 +297,7 @@
 				235A0AE12B694C0E00C72155 /* Assets.xcassets in Resources */,
 				235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */,
 				235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */,
+				232809322B75781000F0A1B1 /* toilet-flush-2-short.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
