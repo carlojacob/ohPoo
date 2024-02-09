@@ -51,8 +51,8 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Notification permissions:
     1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
     1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
-1. Create custom audio for end of timer notification.
 1. Research whether navigating to my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
 
-### Known Issues
+### Known Issues/Bugs
 1. Colors aren't the same in dark mode.
+1. Flush sound plays after returning to the app from the background when the timer has expired.
