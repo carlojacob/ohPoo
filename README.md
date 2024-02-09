@@ -1,10 +1,15 @@
 # Poo Timer
 
-Simple Timer app to reduce time-wasting while using the bathroom.
+This app was built to reduce time-wasting while using the bathroom. Inspired by the gag gift below, it is designed for folx that are susceptible to being drawn into distractions and forgetting about the business at hand. All that the user has to do is to select a target timer duration via the Settings screen, then tap the Start Timer button to begin the countdown. The user can see the timer counting down to 0:00 or background the app and do whatever they wish. A few minutes later, the user gets an alert (audible if the app is active/notification with custom audio if the app is backgrounded) when the target time has elapsed.
+
+<p align="center">
+  <img src="https://i.imgur.com/fOgitO9.jpeg" alt="Home Screen" width="300"/>
+</p>
+<p align="center">The gag gift that is the inspiration for this app.</p>
 
 Look out for more updates to come!
 
-Note: Pragma marks (`// MARK:`) have been added to `PooTimer.swift` to indicate where audio is prevented from playing by default. Uncomment function calls of the form `// play____()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
+**Note**: Pragma marks (`// MARK:`) have been added to `PooTimer.swift` to indicate where audio is prevented from playing by default. Uncomment function calls of the form `// play____()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
 
 ## Screenshots
 <p align="center">
@@ -52,6 +57,7 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
     1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
     1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
 1. Research whether navigating to my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
+1. Periodic alerts/sounds to remind the user about their business.
 
 ### Known Issues/Bugs
 1. Colors aren't the same in dark mode.
