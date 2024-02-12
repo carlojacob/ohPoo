@@ -39,7 +39,6 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 
 ## Future Work
 1. Update "Back" button title to "Home" on Timer screen.
-1. Add slowly filling image for duration of timer.
 1. Allow initial timer arc to show a small white section at the top.
 1. Settings additions:
     1. Manually start timer on Timer screen.
@@ -63,4 +62,3 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Different timers/themes. e.g. Kitchen/cooking, task completion.
 
 ### Known Issues/Bugs
-1. Colors aren't the same in dark mode.
