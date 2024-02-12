@@ -60,4 +60,3 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 
 ### Known Issues/Bugs
 1. Colors aren't the same in dark mode.
-1. Flush sound plays after returning to the app from the background when the timer has expired.
