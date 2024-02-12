@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2328092F2B7424CC00F0A1B1 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */; };
 		232809322B75781000F0A1B1 /* toilet-flush-2-short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 232809302B75728100F0A1B1 /* toilet-flush-2-short.mp3 */; };
+		232809362B7A6C7900F0A1B1 /* FillingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232809352B7A6C7900F0A1B1 /* FillingView.swift */; };
+		232809382B7A86EF00F0A1B1 /* FillingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232809372B7A86EF00F0A1B1 /* FillingImageView.swift */; };
 		235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0ADC2B694C0D00C72155 /* OhPooApp.swift */; };
 		235A0AE12B694C0E00C72155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235A0AE02B694C0E00C72155 /* Assets.xcassets */; };
 		235A0AE42B694C0E00C72155 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235A0AE32B694C0E00C72155 /* Preview Assets.xcassets */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 		232809302B75728100F0A1B1 /* toilet-flush-2-short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2-short.mp3"; sourceTree = "<group>"; };
+		232809352B7A6C7900F0A1B1 /* FillingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillingView.swift; sourceTree = "<group>"; };
+		232809372B7A86EF00F0A1B1 /* FillingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillingImageView.swift; sourceTree = "<group>"; };
 		235A0AD92B694C0D00C72155 /* OhPoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhPoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		235A0ADC2B694C0D00C72155 /* OhPooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhPooApp.swift; sourceTree = "<group>"; };
 		235A0AE02B694C0E00C72155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				235A0B202B69516A00C72155 /* TimerArc.swift */,
 				235A0B222B69523A00C72155 /* CountdownView.swift */,
 				235A0B242B6952B100C72155 /* SettingsView.swift */,
+				232809352B7A6C7900F0A1B1 /* FillingView.swift */,
+				232809372B7A86EF00F0A1B1 /* FillingImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,8 +334,10 @@
 				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
 				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
 				235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */,
+				232809382B7A86EF00F0A1B1 /* FillingImageView.swift in Sources */,
 				235A0B212B69516A00C72155 /* TimerArc.swift in Sources */,
 				235A0B232B69523A00C72155 /* CountdownView.swift in Sources */,
+				232809362B7A6C7900F0A1B1 /* FillingView.swift in Sources */,
 				235A0B192B6950C300C72155 /* PooTheme.swift in Sources */,
 				235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */,
 				235A0B152B694FBC00C72155 /* HomeView.swift in Sources */,

@@ -18,22 +18,28 @@ struct PooTimerView: View {
 	@Environment(\.scenePhase) private var scenePhase
 	
 	var body: some View {
-		ZStack {
-			Circle()
-				.strokeBorder(lineWidth: 30)
-				.foregroundStyle(theme.color)
-				.overlay {
-					Circle()
-						.strokeBorder(lineWidth: 18)
-						.foregroundStyle(Color.white)
-						.padding(6)
-				}
-				.overlay {
-					TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
-						.rotation(Angle(degrees: -90))
-						.stroke(theme.color, lineWidth: 15)
-				}
-			CountdownView(timerText: pooTimer.timerText)
+		VStack {
+			Spacer()
+			FillingImageView(timerDuration: pooTimer.timerDuration, secondsRemaining: pooTimer.secondsRemaining)
+			Spacer()
+			ZStack {
+				Circle()
+					.strokeBorder(lineWidth: 30)
+					.foregroundStyle(theme.color)
+					.overlay {
+						Circle()
+							.strokeBorder(lineWidth: 18)
+							.foregroundStyle(Color.white)
+							.padding(6)
+					}
+					.overlay {
+						TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
+							.rotation(Angle(degrees: -90))
+							.stroke(theme.color, lineWidth: 15)
+					}
+				CountdownView(timerText: pooTimer.timerText)
+			}
+			Spacer()
 		}
 		.padding()
 		.onAppear {
