@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsView: View {
 	let theme = PooTheme()
 	
-	@Binding var isSettingsDisplayed: Bool
 	@Binding var timerDurationInMinutesAsDouble: Double
 	private var timerDurationInMinutes: Int {
 		Int(timerDurationInMinutesAsDouble)
@@ -39,6 +38,6 @@ struct SettingsView_Previews: PreviewProvider {
 	static var lengthInMinutesAsDouble: Double = 3.0
 	
 	static var previews: some View {
-		SettingsView(isSettingsDisplayed: .constant(true), timerDurationInMinutesAsDouble: .constant(lengthInMinutesAsDouble))
+		SettingsView(timerDurationInMinutesAsDouble: .constant(lengthInMinutesAsDouble))
 	}
 }

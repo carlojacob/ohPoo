@@ -60,7 +60,7 @@ struct HomeView: View {
 					}
 				}) {
 					NavigationStack {
-						SettingsView(isSettingsDisplayed: $isSettingsDisplayed, timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
+						SettingsView(timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
 							.navigationTitle("Settings")
 							.toolbar(content: {
 								ToolbarItem(placement: .topBarLeading) {
