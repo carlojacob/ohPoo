@@ -14,6 +14,8 @@ class PooTimer: ObservableObject {
 	@Published var timerText = "3:00"
 	@Published var timerDuration: Int
 	
+	var theme: PooTheme = PooTheme()
+	
 	private var timer: Timer?
 	private var frequency: TimeInterval { 1.0 / 60.0 }
 	private var timerStopped = false
@@ -100,5 +102,6 @@ class PooTimer: ObservableObject {
 		self.timerDuration = timerDuration
 		secondsRemaining = timerDuration
 		timerDurationInMinutesAsDouble = Double(timerDuration / 60)
+		timerStopped = false
 	}
 }
