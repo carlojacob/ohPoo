@@ -9,16 +9,16 @@ import SwiftUI
 import AVFoundation
 
 struct CountdownView: View {
-	var timerText: String
+	@EnvironmentObject var pooTimer: PooTimer
 	
 	var body: some View {
-		Text(timerText)
+		Text(pooTimer.timerText)
 			.font(.custom("fullscreen", size: 90))
-			.foregroundStyle(PooTheme.pooColor.color)
+			.foregroundStyle(pooTimer.theme.color)
 			.monospaced()
 	}
 }
 
 #Preview {
-	CountdownView(timerText: "3:00")
+	CountdownView().environmentObject(PooTimer())
 }

@@ -9,23 +9,21 @@ import SwiftUI
 import AVFoundation
 
 struct PooTimerView: View {
-	var timerDuration: Int = 180
-	let theme = PooTheme()
 	let localNotifications = LocalNotifications()
 	
-	@StateObject var pooTimer = PooTimer()
+	@EnvironmentObject var pooTimer: PooTimer
 	
 	@Environment(\.scenePhase) private var scenePhase
 	
 	var body: some View {
 		VStack {
 			Spacer()
-			FillingImageView(timerDuration: pooTimer.timerDuration, secondsRemaining: pooTimer.secondsRemaining)
+			FillingImageView()
 			Spacer()
 			ZStack {
 				Circle()
 					.strokeBorder(lineWidth: 30)
-					.foregroundStyle(theme.color)
+					.foregroundStyle(pooTimer.theme.color)
 					.overlay {
 						Circle()
 							.strokeBorder(lineWidth: 18)
@@ -35,9 +33,9 @@ struct PooTimerView: View {
 					.overlay {
 						TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
 							.rotation(Angle(degrees: -90))
-							.stroke(theme.color, lineWidth: 15)
+							.stroke(pooTimer.theme.color, lineWidth: 15)
 					}
-				CountdownView(timerText: pooTimer.timerText)
+				CountdownView()
 			}
 			Spacer()
 		}
@@ -48,7 +46,7 @@ struct PooTimerView: View {
 		.onDisappear {
 			stopPoo()
 		}
-		.background(Color(theme.lightColor))
+		.background(Color(pooTimer.theme.lightColor))
 		// When inactive, the flush sound plays, even with Silent mode on.
 		// When we go to background phase the flush sound doesn't play,
 		// so we set up a local notification to tell the user.
@@ -67,7 +65,7 @@ struct PooTimerView: View {
 	
 	@MainActor
 	private func startPoo() {
-		pooTimer.reset(timerDuration: timerDuration)
+		pooTimer.reset(timerDuration: pooTimer.timerDuration)
 		pooTimer.startPoo()
 	}
 	
@@ -78,5 +76,5 @@ struct PooTimerView: View {
 }
 
 #Preview {
-	PooTimerView(pooTimer: PooTimer(timerDuration: 180))
+	PooTimerView().environmentObject(PooTimer(timerDuration: 180))
 }
