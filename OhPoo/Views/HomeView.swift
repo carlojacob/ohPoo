@@ -59,7 +59,7 @@ struct HomeView: View {
 					}
 				}) {
 					NavigationStack {
-						SettingsView(isSettingsDisplayed: $isSettingsDisplayed)
+						SettingsView()
 							.navigationTitle("Settings")
 							.toolbar(content: {
 								ToolbarItem(placement: .topBarLeading) {

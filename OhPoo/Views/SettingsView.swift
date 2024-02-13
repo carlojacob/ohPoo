@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsView: View {
 	@EnvironmentObject var pooTimer: PooTimer
 	
-	@Binding var isSettingsDisplayed: Bool
 	private var timerDurationInMinutes: Int {
 		Int(pooTimer.timerDurationInMinutesAsDouble)
 	}
@@ -38,6 +37,6 @@ struct SettingsView_Previews: PreviewProvider {
 	static var lengthInMinutesAsDouble: Double = 3.0
 	
 	static var previews: some View {
-		SettingsView(isSettingsDisplayed: .constant(true)).environmentObject(PooTimer())
+		SettingsView().environmentObject(PooTimer())
 	}
 }
