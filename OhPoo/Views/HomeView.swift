@@ -9,12 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
 	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
-	let theme = PooTheme()
 	let localNotifications = LocalNotifications()
 	
 	@Environment(\.scenePhase) private var scenePhase
 	
-	@StateObject var pooTimer = PooTimer()
+	@EnvironmentObject var pooTimer: PooTimer
 	
 	@State private var homeScreenTimeValue: Int = 3
 	@State private var isSettingsDisplayed: Bool = false
@@ -24,23 +23,23 @@ struct HomeView: View {
 	var body: some View {
 		NavigationStack {
 			ZStack {
-				Color(theme.lightColor)
+				Color(pooTimer.theme.lightColor)
 					.ignoresSafeArea()
 				VStack {
 					Text("💩")
 						.font(homeScreenEmojiFont)
 					NavigationLink {
-						PooTimerView(timerDuration: pooTimer.timerDuration)
+						PooTimerView()
 					} label: {
 						Text("Start Timer")
 							.padding()
-							.background(theme.color)
+							.background(pooTimer.theme.color)
 							.foregroundStyle(Color.white)
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
 					Text("\(homeScreenTimeValue) minutes")
-						.foregroundStyle(theme.color)
+						.foregroundStyle(pooTimer.theme.color)
 						.fontWeight(.semibold)
 				}
 				.toolbar {
@@ -60,7 +59,7 @@ struct HomeView: View {
 					}
 				}) {
 					NavigationStack {
-						SettingsView(timerDurationInMinutesAsDouble: $pooTimer.timerDurationInMinutesAsDouble)
+						SettingsView(isSettingsDisplayed: $isSettingsDisplayed)
 							.navigationTitle("Settings")
 							.toolbar(content: {
 								ToolbarItem(placement: .topBarLeading) {
@@ -81,7 +80,7 @@ struct HomeView: View {
 				}
 			}
 		}
-		.tint(theme.color)
+		.tint(pooTimer.theme.color)
 		.onAppear {
 			// Request/check permission to send notifications.
 			localNotifications.registerLocalNotification()
@@ -99,5 +98,5 @@ struct HomeView: View {
 }
 
 #Preview {
-	HomeView()
+	HomeView().environmentObject(PooTimer())
 }

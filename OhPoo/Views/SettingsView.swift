@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-	let theme = PooTheme()
+	@EnvironmentObject var pooTimer: PooTimer
 	
-	@Binding var timerDurationInMinutesAsDouble: Double
+	@Binding var isSettingsDisplayed: Bool
 	private var timerDurationInMinutes: Int {
-		Int(timerDurationInMinutesAsDouble)
+		Int(pooTimer.timerDurationInMinutesAsDouble)
 	}
 	
 	var body: some View {
@@ -20,7 +20,7 @@ struct SettingsView: View {
 			List {
 				Section("Timer Duration") {
 					HStack {
-						Slider(value: $timerDurationInMinutesAsDouble, in: 3...30, step: 1) {
+						Slider(value: $pooTimer.timerDurationInMinutesAsDouble, in: 3...30, step: 1) {
 							Text("Time")
 						}
 						Spacer()
@@ -28,7 +28,7 @@ struct SettingsView: View {
 					}
 				}
 				.fontWeight(.semibold)
-				.foregroundStyle(theme.color)
+				.foregroundStyle(pooTimer.theme.color)
 			}
 		}
 	}
@@ -38,6 +38,6 @@ struct SettingsView_Previews: PreviewProvider {
 	static var lengthInMinutesAsDouble: Double = 3.0
 	
 	static var previews: some View {
-		SettingsView(timerDurationInMinutesAsDouble: .constant(lengthInMinutesAsDouble))
+		SettingsView(isSettingsDisplayed: .constant(true)).environmentObject(PooTimer())
 	}
 }
