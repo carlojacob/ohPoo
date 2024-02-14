@@ -28,6 +28,7 @@
 		235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B292B69CB5B00C72155 /* fart-05.mp3 */; };
 		235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */; };
 		235A0B4B2B715D2F00C72155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B4A2B715D2F00C72155 /* AppDelegate.swift */; };
+		23D144002B7D080700A4235B /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2.mp3"; sourceTree = "<group>"; };
 		235A0B492B6BCC9400C72155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		235A0B4A2B715D2F00C72155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */,
 				235A0B182B6950C300C72155 /* PooTheme.swift */,
 				235A0B1C2B6950F200C72155 /* PooTimer.swift */,
+				23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				235A0B192B6950C300C72155 /* PooTheme.swift in Sources */,
 				235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */,
 				235A0B152B694FBC00C72155 /* HomeView.swift in Sources */,
+				23D144002B7D080700A4235B /* TrailingIconLabelStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

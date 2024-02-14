@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+private struct HomeScreenValues {
+	var timeInMinutes: Int
+	var soundOn: Bool
+	
+	init(timeInMinutes: Int = 3, soundOn: Bool = false) {
+		self.timeInMinutes = timeInMinutes
+		self.soundOn = soundOn
+	}
+}
+
+private struct TempSettingsValues {
+	var timerDurationInMinutesAsDouble: Double
+	var timerSoundOn: Bool
+	
+	init(timerDurationInMinutesAsDouble: Double = 3.0, timerSoundOn: Bool = false) {
+		self.timerDurationInMinutesAsDouble = timerDurationInMinutesAsDouble
+		self.timerSoundOn = timerSoundOn
+	}
+}
+
 struct HomeView: View {
 	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let localNotifications = LocalNotifications()
@@ -15,10 +35,11 @@ struct HomeView: View {
 	
 	@EnvironmentObject var pooTimer: PooTimer
 	
-	@State private var homeScreenTimeValue: Int = 3
 	@State private var isSettingsDisplayed: Bool = false
-	@State private var initialEditingTimerDuration: Double = 0.0
 	@State private var saveButtonPressed: Bool = false
+	
+	@State private var homeScreenValues: HomeScreenValues = HomeScreenValues()
+	@State private var tempSettingsValues: TempSettingsValues = TempSettingsValues()
 	
 	var body: some View {
 		NavigationStack {
@@ -38,28 +59,24 @@ struct HomeView: View {
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
-					Text("\(homeScreenTimeValue) minutes")
+					Label("\(homeScreenValues.timeInMinutes) minutes", systemImage: homeScreenValues.soundOn ? "speaker.wave.3" : "speaker.slash")
+						.labelStyle(.trailingIcon)
 						.foregroundStyle(pooTimer.theme.color)
 						.fontWeight(.semibold)
 				}
 				.toolbar {
 					Button(action: {
-						isSettingsDisplayed = true
-						initialEditingTimerDuration = pooTimer.timerDurationInMinutesAsDouble
+						onSettingsButtonTapped()
 					}) {
 						Image(systemName: "gearshape")
 							.fontWeight(.bold)
 					}
 				}
 				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
-					if saveButtonPressed {
-						saveButtonPressed = false
-					} else {
-						pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
-					}
+					onDismissSettings()
 				}) {
 					NavigationStack {
-						SettingsView(isSettingsDisplayed: $isSettingsDisplayed)
+						SettingsView()
 							.navigationTitle("Settings")
 							.toolbar(content: {
 								ToolbarItem(placement: .topBarLeading) {
@@ -69,9 +86,7 @@ struct HomeView: View {
 								}
 								ToolbarItem(placement: .topBarTrailing) {
 									Button("Save") {
-										isSettingsDisplayed = false
-										saveButtonPressed = true
-										homeScreenTimeValue = Int(pooTimer.timerDurationInMinutesAsDouble)
+										onSaveSettingsButtonTapped()
 									}
 								}
 							})
@@ -94,6 +109,28 @@ struct HomeView: View {
 				print("Removed pending notifications: at \(Date())") // TODO: Remove
 			}
 		}
+	}
+	
+	private func onSettingsButtonTapped() {
+		isSettingsDisplayed = true
+		tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
+		tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
+	}
+	
+	private func onDismissSettings() {
+		if saveButtonPressed {
+			saveButtonPressed = false
+		} else {
+			pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
+			pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
+		}
+	}
+	
+	private func onSaveSettingsButtonTapped() {
+		isSettingsDisplayed = false
+		saveButtonPressed = true
+		homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
+		homeScreenValues.soundOn = pooTimer.timerSoundOn
 	}
 }
 
