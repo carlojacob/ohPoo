@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+private struct HomeScreenValues {
+	var timeInMinutes: Int
+	var soundOn: Bool
+	
+	init(timeInMinutes: Int = 3, soundOn: Bool = false) {
+		self.timeInMinutes = timeInMinutes
+		self.soundOn = soundOn
+	}
+}
+
+private struct TempSettingsValues {
+	var timerDurationInMinutesAsDouble: Double
+	var timerSoundOn: Bool
+	
+	init(timerDurationInMinutesAsDouble: Double = 3.0, timerSoundOn: Bool = false) {
+		self.timerDurationInMinutesAsDouble = timerDurationInMinutesAsDouble
+		self.timerSoundOn = timerSoundOn
+	}
+}
+
 struct HomeView: View {
 	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let localNotifications = LocalNotifications()
@@ -15,17 +35,11 @@ struct HomeView: View {
 	
 	@EnvironmentObject var pooTimer: PooTimer
 	
-	@State private var homeScreenTimeValue: Int = 3
-	@State private var homeScreenSoundOnValue: Bool = false
 	@State private var isSettingsDisplayed: Bool = false
 	@State private var saveButtonPressed: Bool = false
 	
-	private struct InitialEditingSettings {
-		var timerDuration: Double
-		var soundOn: Bool
-	}
-		
-	@State private var initialEditingSettings: InitialEditingSettings = InitialEditingSettings(timerDuration: 0.0, soundOn: false)
+	@State private var homeScreenValues: HomeScreenValues = HomeScreenValues()
+	@State private var tempSettingsValues: TempSettingsValues = TempSettingsValues()
 	
 	var body: some View {
 		NavigationStack {
@@ -45,18 +59,16 @@ struct HomeView: View {
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
-					HStack {
-						Text("\(homeScreenTimeValue) minutes")
-						Image(systemName: homeScreenSoundOnValue ? "speaker.wave.3" : "speaker.slash")
-					}
-					.foregroundStyle(pooTimer.theme.color)
-					.fontWeight(.semibold)
+					Label("\(homeScreenValues.timeInMinutes) minutes", systemImage: homeScreenValues.soundOn ? "speaker.wave.3" : "speaker.slash")
+						.labelStyle(.trailingIcon)
+						.foregroundStyle(pooTimer.theme.color)
+						.fontWeight(.semibold)
 				}
 				.toolbar {
 					Button(action: {
 						isSettingsDisplayed = true
-						initialEditingSettings.timerDuration = pooTimer.timerDurationInMinutesAsDouble
-						initialEditingSettings.soundOn = pooTimer.timerSoundOn
+						tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
+						tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
 					}) {
 						Image(systemName: "gearshape")
 							.fontWeight(.bold)
@@ -66,8 +78,8 @@ struct HomeView: View {
 					if saveButtonPressed {
 						saveButtonPressed = false
 					} else {
-						pooTimer.timerDurationInMinutesAsDouble = initialEditingSettings.timerDuration
-						pooTimer.timerSoundOn = initialEditingSettings.soundOn
+						pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
+						pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
 					}
 				}) {
 					NavigationStack {
@@ -83,8 +95,8 @@ struct HomeView: View {
 									Button("Save") {
 										isSettingsDisplayed = false
 										saveButtonPressed = true
-										homeScreenTimeValue = Int(pooTimer.timerDurationInMinutesAsDouble)
-										homeScreenSoundOnValue = pooTimer.timerSoundOn
+										homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
+										homeScreenValues.soundOn = pooTimer.timerSoundOn
 									}
 								}
 							})
