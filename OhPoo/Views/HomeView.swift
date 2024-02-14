@@ -66,21 +66,14 @@ struct HomeView: View {
 				}
 				.toolbar {
 					Button(action: {
-						isSettingsDisplayed = true
-						tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
-						tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
+						onSettingsButtonTapped()
 					}) {
 						Image(systemName: "gearshape")
 							.fontWeight(.bold)
 					}
 				}
 				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
-					if saveButtonPressed {
-						saveButtonPressed = false
-					} else {
-						pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
-						pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
-					}
+					onDismissSettings()
 				}) {
 					NavigationStack {
 						SettingsView()
@@ -93,10 +86,7 @@ struct HomeView: View {
 								}
 								ToolbarItem(placement: .topBarTrailing) {
 									Button("Save") {
-										isSettingsDisplayed = false
-										saveButtonPressed = true
-										homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
-										homeScreenValues.soundOn = pooTimer.timerSoundOn
+										onSaveButtonTapped()
 									}
 								}
 							})
@@ -119,6 +109,28 @@ struct HomeView: View {
 				print("Removed pending notifications: at \(Date())") // TODO: Remove
 			}
 		}
+	}
+	
+	private func onSettingsButtonTapped() {
+		isSettingsDisplayed = true
+		tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
+		tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
+	}
+	
+	private func onDismissSettings() {
+		if saveButtonPressed {
+			saveButtonPressed = false
+		} else {
+			pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
+			pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
+		}
+	}
+	
+	private func onSaveButtonTapped() {
+		isSettingsDisplayed = false
+		saveButtonPressed = true
+		homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
+		homeScreenValues.soundOn = pooTimer.timerSoundOn
 	}
 }
 
