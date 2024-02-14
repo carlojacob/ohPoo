@@ -13,6 +13,7 @@ class PooTimer: ObservableObject {
 	@Published var secondsRemaining = 180
 	@Published var timerText = "3:00"
 	@Published var timerDuration: Int
+	@Published var timerSoundOn: Bool
 	
 	var theme: PooTheme = PooTheme()
 	
@@ -36,14 +37,15 @@ class PooTimer: ObservableObject {
 	
 	// Use to ensure that audio plays when it should.
 	private var fartPlayed: Bool = false
-	private var shouldPlayFart: Bool { timeRemaining == timerDuration && !fartPlayed }
+	private var shouldPlayFart: Bool { timeRemaining == timerDuration && !fartPlayed && timerSoundOn }
 	private var flushPlayed: Bool = false
 	private var flushTimePassed: Bool = false
-	private var shouldPlayFlush: Bool { timeRemaining == 00 && !flushPlayed && !flushTimePassed }
+	private var shouldPlayFlush: Bool { timeRemaining == 0 && !flushPlayed && !flushTimePassed && timerSoundOn }
 	
-	init(timerDuration: Int = 180, timeRemaining: Int = 180) {
+	init(timerDuration: Int = 180, timeRemaining: Int = 180, timerSoundOn: Bool = false) {
 		self.timerDuration = timerDuration
 		self.timeRemaining = timerDuration
+		self.timerSoundOn = timerSoundOn
 	}
 	
 	func startPoo() {
@@ -68,16 +70,12 @@ class PooTimer: ObservableObject {
 			timeElapsed = secondsElapsed
 			timeRemaining = max(timerDuration - timeElapsed, 0)
 			flushTimePassed = timerDuration - timeElapsed < 0
-			// MARK: Fart audio control
-			// Commented to prevent noise by default each time you start a Poo
 			if shouldPlayFart {
-//				playFart()
+				playFart()
 				fartPlayed = true
 			}
-			// MARK: Flush audio control
-			// Commented to prevent noise by default each time you finish a Poo
 			if shouldPlayFlush {
-//				playFlush()
+				playFlush()
 				flushPlayed = true
 				timerStopped = true
 			}
@@ -100,8 +98,11 @@ class PooTimer: ObservableObject {
 	
 	func reset(timerDuration: Int) {
 		self.timerDuration = timerDuration
-		secondsRemaining = timerDuration
-		timerDurationInMinutesAsDouble = Double(timerDuration / 60)
-		timerStopped = false
+		self.secondsRemaining = timerDuration
+		self.timerDurationInMinutesAsDouble = Double(timerDuration / 60)
+		self.timerStopped = false
+		self.fartPlayed = false
+		self.flushPlayed = false
+		self.flushTimePassed = false
 	}
 }

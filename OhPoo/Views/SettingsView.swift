@@ -26,17 +26,16 @@ struct SettingsView: View {
 						Text("\(timerDurationInMinutes) minutes")
 					}
 				}
-				.fontWeight(.semibold)
-				.foregroundStyle(pooTimer.theme.color)
+				Section("Timer Sounds") {
+					Toggle("Sounds \(pooTimer.timerSoundOn ? "on" : "off")", isOn: $pooTimer.timerSoundOn)
+				}
 			}
+			.fontWeight(.semibold)
+			.foregroundStyle(pooTimer.theme.color)
 		}
 	}
 }
 
-struct SettingsView_Previews: PreviewProvider {
-	static var lengthInMinutesAsDouble: Double = 3.0
-	
-	static var previews: some View {
-		SettingsView().environmentObject(PooTimer())
-	}
+#Preview {
+	SettingsView().environmentObject(PooTimer())
 }

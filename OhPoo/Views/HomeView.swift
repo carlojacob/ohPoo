@@ -16,9 +16,16 @@ struct HomeView: View {
 	@EnvironmentObject var pooTimer: PooTimer
 	
 	@State private var homeScreenTimeValue: Int = 3
+	@State private var homeScreenSoundOnValue: Bool = false
 	@State private var isSettingsDisplayed: Bool = false
-	@State private var initialEditingTimerDuration: Double = 0.0
 	@State private var saveButtonPressed: Bool = false
+	
+	private struct InitialEditingSettings {
+		var timerDuration: Double
+		var soundOn: Bool
+	}
+		
+	@State private var initialEditingSettings: InitialEditingSettings = InitialEditingSettings(timerDuration: 0.0, soundOn: false)
 	
 	var body: some View {
 		NavigationStack {
@@ -38,14 +45,18 @@ struct HomeView: View {
 							.font(.system(.title2, weight: .bold))
 							.cornerRadius(15)
 					}
-					Text("\(homeScreenTimeValue) minutes")
-						.foregroundStyle(pooTimer.theme.color)
-						.fontWeight(.semibold)
+					HStack {
+						Text("\(homeScreenTimeValue) minutes")
+						Image(systemName: homeScreenSoundOnValue ? "speaker.wave.3" : "speaker.slash")
+					}
+					.foregroundStyle(pooTimer.theme.color)
+					.fontWeight(.semibold)
 				}
 				.toolbar {
 					Button(action: {
 						isSettingsDisplayed = true
-						initialEditingTimerDuration = pooTimer.timerDurationInMinutesAsDouble
+						initialEditingSettings.timerDuration = pooTimer.timerDurationInMinutesAsDouble
+						initialEditingSettings.soundOn = pooTimer.timerSoundOn
 					}) {
 						Image(systemName: "gearshape")
 							.fontWeight(.bold)
@@ -55,7 +66,8 @@ struct HomeView: View {
 					if saveButtonPressed {
 						saveButtonPressed = false
 					} else {
-						pooTimer.timerDurationInMinutesAsDouble = initialEditingTimerDuration
+						pooTimer.timerDurationInMinutesAsDouble = initialEditingSettings.timerDuration
+						pooTimer.timerSoundOn = initialEditingSettings.soundOn
 					}
 				}) {
 					NavigationStack {
@@ -72,6 +84,7 @@ struct HomeView: View {
 										isSettingsDisplayed = false
 										saveButtonPressed = true
 										homeScreenTimeValue = Int(pooTimer.timerDurationInMinutesAsDouble)
+										homeScreenSoundOnValue = pooTimer.timerSoundOn
 									}
 								}
 							})

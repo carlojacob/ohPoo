@@ -9,8 +9,6 @@ This app was built to reduce time-wasting while using the bathroom. Inspired by 
 
 Look out for more updates to come!
 
-**Note**: Pragma marks (`// MARK:`) have been added to `PooTimer.swift` to indicate where audio is prevented from playing by default. Uncomment function calls of the form `// play____()` to turn on locally. These will be turned off by default in later iterations, with user Settings to turn them on.
-
 ## App Structure
 To be added.
 
@@ -42,7 +40,6 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Allow initial timer arc to show a small white section at the top.
 1. Settings additions:
     1. Manually start timer on Timer screen.
-    1. Turn sound on/off (default: off).
     1. Add different filling Timer screen image options (e.g. Roses, Children to school, "2", monarch on a throne)
 1. Make duration selection a pickerwheel, including seconds? This would require an overhaul of the numbers being passed around.
 1. Store audio filenames in enum, rather than as hardcoded strings.
