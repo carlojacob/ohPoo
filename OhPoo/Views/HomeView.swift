@@ -86,7 +86,7 @@ struct HomeView: View {
 								}
 								ToolbarItem(placement: .topBarTrailing) {
 									Button("Save") {
-										onSaveButtonTapped()
+										onSaveSettingsButtonTapped()
 									}
 								}
 							})
@@ -126,7 +126,7 @@ struct HomeView: View {
 		}
 	}
 	
-	private func onSaveButtonTapped() {
+	private func onSaveSettingsButtonTapped() {
 		isSettingsDisplayed = false
 		saveButtonPressed = true
 		homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
