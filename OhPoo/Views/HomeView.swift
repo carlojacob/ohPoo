@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private struct HomeScreenValues {
+struct HomeScreenValues {
 	var timeInMinutes: Int
 	var soundOn: Bool
 	
@@ -28,7 +28,6 @@ private struct TempSettingsValues {
 }
 
 struct HomeView: View {
-	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let localNotifications = LocalNotifications()
 	
 	@Environment(\.scenePhase) private var scenePhase
@@ -46,53 +45,36 @@ struct HomeView: View {
 			ZStack {
 				Color(pooTimer.theme.lightColor)
 					.ignoresSafeArea()
-				VStack {
-					Text("💩")
-						.font(homeScreenEmojiFont)
-					NavigationLink {
-						PooTimerView()
-					} label: {
-						Text("Start Timer")
-							.padding()
-							.background(pooTimer.theme.color)
-							.foregroundStyle(Color.white)
-							.font(.system(.title2, weight: .bold))
-							.cornerRadius(15)
+				DynamicOrientationStackView(content: HomeContentsView(homeScreenValues: homeScreenValues))
+					.toolbar {
+						Button(action: {
+							onSettingsButtonTapped()
+						}) {
+							Image(systemName: "gearshape")
+								.fontWeight(.bold)
+						}
 					}
-					Label("\(homeScreenValues.timeInMinutes) minutes", systemImage: homeScreenValues.soundOn ? "speaker.wave.3" : "speaker.slash")
-						.labelStyle(.trailingIcon)
-						.foregroundStyle(pooTimer.theme.color)
-						.fontWeight(.semibold)
-				}
-				.toolbar {
-					Button(action: {
-						onSettingsButtonTapped()
+					.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
+						onDismissSettings()
 					}) {
-						Image(systemName: "gearshape")
-							.fontWeight(.bold)
-					}
-				}
-				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
-					onDismissSettings()
-				}) {
-					NavigationStack {
-						SettingsView()
-							.navigationTitle("Settings")
-							.toolbar(content: {
-								ToolbarItem(placement: .topBarLeading) {
-									Button("Cancel") {
-										isSettingsDisplayed = false
+						NavigationStack {
+							SettingsView()
+								.navigationTitle("Settings")
+								.toolbar(content: {
+									ToolbarItem(placement: .topBarLeading) {
+										Button("Cancel") {
+											isSettingsDisplayed = false
+										}
 									}
-								}
-								ToolbarItem(placement: .topBarTrailing) {
-									Button("Save") {
-										onSaveSettingsButtonTapped()
+									ToolbarItem(placement: .topBarTrailing) {
+										Button("Save") {
+											onSaveSettingsButtonTapped()
+										}
 									}
-								}
-							})
-							.fontWeight(.semibold)
+								})
+								.fontWeight(.semibold)
+						}
 					}
-				}
 			}
 		}
 		.tint(pooTimer.theme.color)
