@@ -16,29 +16,7 @@ struct PooTimerView: View {
 	@Environment(\.scenePhase) private var scenePhase
 	
 	var body: some View {
-		VStack {
-			Spacer()
-			FillingImageView()
-			Spacer()
-			ZStack {
-				Circle()
-					.strokeBorder(lineWidth: 30)
-					.foregroundStyle(pooTimer.theme.color)
-					.overlay {
-						Circle()
-							.strokeBorder(lineWidth: 18)
-							.foregroundStyle(Color.white)
-							.padding(6)
-					}
-					.overlay {
-						TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
-							.rotation(Angle(degrees: -90))
-							.stroke(pooTimer.theme.color, lineWidth: 15)
-					}
-				CountdownView()
-			}
-			Spacer()
-		}
+		DynamicOrientationStackView(content: PooTimerContentsView())
 		.padding()
 		.onAppear {
 			startPoo()

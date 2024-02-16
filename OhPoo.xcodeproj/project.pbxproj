@@ -28,6 +28,9 @@
 		235A0B2B2B69CB5B00C72155 /* fart-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B292B69CB5B00C72155 /* fart-05.mp3 */; };
 		235A0B2C2B69CB5B00C72155 /* toilet-flush-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */; };
 		235A0B4B2B715D2F00C72155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A0B4A2B715D2F00C72155 /* AppDelegate.swift */; };
+		235ED7B82B7FE27700EEFEE2 /* HomeContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7B72B7FE27700EEFEE2 /* HomeContentsView.swift */; };
+		235ED7BA2B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7B92B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift */; };
+		235ED7BC2B7FF6E600EEFEE2 /* PooTimerContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7BB2B7FF6E600EEFEE2 /* PooTimerContentsView.swift */; };
 		23D144002B7D080700A4235B /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */; };
 		23D144022B7D6E2600A4235B /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D144012B7D6E2600A4235B /* AudioFile.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +78,9 @@
 		235A0B2A2B69CB5B00C72155 /* toilet-flush-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toilet-flush-2.mp3"; sourceTree = "<group>"; };
 		235A0B492B6BCC9400C72155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		235A0B4A2B715D2F00C72155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		235ED7B72B7FE27700EEFEE2 /* HomeContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentsView.swift; sourceTree = "<group>"; };
+		235ED7B92B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOrientationStackView.swift; sourceTree = "<group>"; };
+		235ED7BB2B7FF6E600EEFEE2 /* PooTimerContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTimerContentsView.swift; sourceTree = "<group>"; };
 		23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		23D144012B7D6E2600A4235B /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,10 +189,13 @@
 				232809372B7A86EF00F0A1B1 /* FillingImageView.swift */,
 				232809352B7A6C7900F0A1B1 /* FillingView.swift */,
 				235A0B142B694FBC00C72155 /* HomeView.swift */,
+				235ED7B72B7FE27700EEFEE2 /* HomeContentsView.swift */,
 				235A0ADC2B694C0D00C72155 /* OhPooApp.swift */,
 				235A0B1E2B69512600C72155 /* PooTimerView.swift */,
+				235ED7BB2B7FF6E600EEFEE2 /* PooTimerContentsView.swift */,
 				235A0B242B6952B100C72155 /* SettingsView.swift */,
 				235A0B202B69516A00C72155 /* TimerArc.swift */,
+				235ED7B92B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 				235A0B4B2B715D2F00C72155 /* AppDelegate.swift in Sources */,
 				235A0B272B69C0D100C72155 /* AVPlayer+getAudio.swift in Sources */,
 				2328092F2B7424CC00F0A1B1 /* LocalNotifications.swift in Sources */,
+				235ED7B82B7FE27700EEFEE2 /* HomeContentsView.swift in Sources */,
 				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
 				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
 				235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */,
@@ -344,7 +354,9 @@
 				235A0B212B69516A00C72155 /* TimerArc.swift in Sources */,
 				235A0B232B69523A00C72155 /* CountdownView.swift in Sources */,
 				23D144022B7D6E2600A4235B /* AudioFile.swift in Sources */,
+				235ED7BC2B7FF6E600EEFEE2 /* PooTimerContentsView.swift in Sources */,
 				232809362B7A6C7900F0A1B1 /* FillingView.swift in Sources */,
+				235ED7BA2B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift in Sources */,
 				235A0B192B6950C300C72155 /* PooTheme.swift in Sources */,
 				235A0ADD2B694C0D00C72155 /* OhPooApp.swift in Sources */,
 				235A0B152B694FBC00C72155 /* HomeView.swift in Sources */,

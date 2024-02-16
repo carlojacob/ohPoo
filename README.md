@@ -56,7 +56,6 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Periodic alerts/sounds to remind the user about their business.
 1. Different timers/themes. e.g. Kitchen/cooking, task completion.
 1. Store user settings on device.
-1. Change `VStack`s to `HStack`s in landscape mode.
 1. Add launch screen file.
 
 ### Known Issues/Bugs

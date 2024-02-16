@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private struct HomeScreenValues {
+struct HomeScreenValues {
 	var timeInMinutes: Int
 	var soundOn: Bool
 	
@@ -28,7 +28,6 @@ private struct TempSettingsValues {
 }
 
 struct HomeView: View {
-	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let localNotifications = LocalNotifications()
 	
 	@Environment(\.scenePhase) private var scenePhase
@@ -46,24 +45,7 @@ struct HomeView: View {
 			ZStack {
 				Color(pooTimer.theme.lightColor)
 					.ignoresSafeArea()
-				VStack {
-					Text("💩")
-						.font(homeScreenEmojiFont)
-					NavigationLink {
-						PooTimerView()
-					} label: {
-						Text("Start Timer")
-							.padding()
-							.background(pooTimer.theme.color)
-							.foregroundStyle(Color.white)
-							.font(.system(.title2, weight: .bold))
-							.cornerRadius(15)
-					}
-					Label("\(homeScreenValues.timeInMinutes) minutes", systemImage: homeScreenValues.soundOn ? "speaker.wave.3" : "speaker.slash")
-						.labelStyle(.trailingIcon)
-						.foregroundStyle(pooTimer.theme.color)
-						.fontWeight(.semibold)
-				}
+				DynamicOrientationStackView(content: HomeContentsView(homeScreenValues: homeScreenValues))
 				.toolbar {
 					Button(action: {
 						onSettingsButtonTapped()
