@@ -48,6 +48,7 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Reactive sizing:
     1. Home screen emoji font size, e.g. minimum of screen width or height plus padding.
     1. Remaining time on Timer screen.
+    1. Including max and min values for images and text—including consideration for iPad screens.
 1. Change Timer value to text after time has expired.
 1. Notification permissions:
     1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
