@@ -46,35 +46,35 @@ struct HomeView: View {
 				Color(pooTimer.theme.lightColor)
 					.ignoresSafeArea()
 				DynamicOrientationStackView(content: HomeContentsView(homeScreenValues: homeScreenValues))
-				.toolbar {
-					Button(action: {
-						onSettingsButtonTapped()
+					.toolbar {
+						Button(action: {
+							onSettingsButtonTapped()
+						}) {
+							Image(systemName: "gearshape")
+								.fontWeight(.bold)
+						}
+					}
+					.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
+						onDismissSettings()
 					}) {
-						Image(systemName: "gearshape")
-							.fontWeight(.bold)
-					}
-				}
-				.sheet(isPresented: $isSettingsDisplayed, onDismiss: {
-					onDismissSettings()
-				}) {
-					NavigationStack {
-						SettingsView()
-							.navigationTitle("Settings")
-							.toolbar(content: {
-								ToolbarItem(placement: .topBarLeading) {
-									Button("Cancel") {
-										isSettingsDisplayed = false
+						NavigationStack {
+							SettingsView()
+								.navigationTitle("Settings")
+								.toolbar(content: {
+									ToolbarItem(placement: .topBarLeading) {
+										Button("Cancel") {
+											isSettingsDisplayed = false
+										}
 									}
-								}
-								ToolbarItem(placement: .topBarTrailing) {
-									Button("Save") {
-										onSaveSettingsButtonTapped()
+									ToolbarItem(placement: .topBarTrailing) {
+										Button("Save") {
+											onSaveSettingsButtonTapped()
+										}
 									}
-								}
-							})
-							.fontWeight(.semibold)
+								})
+								.fontWeight(.semibold)
+						}
 					}
-				}
 			}
 		}
 		.tint(pooTimer.theme.color)
