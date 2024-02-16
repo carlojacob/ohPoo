@@ -85,13 +85,13 @@ class PooTimer: ObservableObject {
 	}
 	
 	private func playFart() {
-		var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "fart-05") }
+		var fartPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: .fart) }
 		fartPlayer.seek(to: .zero)
 		fartPlayer.play()
 	}
 	
 	private func playFlush() {
-		var flushPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: "toilet-flush-2") }
+		var flushPlayer: AVPlayer { AVPlayer.getAudioPlayer(audioFilename: .flush) }
 		flushPlayer.seek(to: .zero)
 		flushPlayer.play()
 	}

@@ -9,23 +9,26 @@ import Foundation
 import AVFoundation
 
 extension AVPlayer {
-	static func getAudioPlayer(audioFilename: String) -> AVPlayer {
-		if audioFilename == "fart-05" {
-			return .getFartAudioPlayer
+	static func getAudioPlayer(audioFilename: AudioFile) -> AVPlayer {
+		switch audioFilename {
+		case .fart:
+			return getFartAudioPlayer
+		case .flush:
+			return getFlushAudioPlayer
+		default:
+			return AVPlayer()
 		}
-		if audioFilename == "toilet-flush-2" {
-			return .getFlushAudioPlayer
-		}
-		return AVPlayer()
 	}
 	
 	static let getFartAudioPlayer: AVPlayer = {
-		guard let url = Bundle.main.url(forResource: "fart-05", withExtension: "mp3") else { fatalError("Failed to find sound file.") }
+		let file = AudioFile.fart
+		guard let url = Bundle.main.url(forResource: file.filename, withExtension: file.fileExtension) else { fatalError("Failed to find sound file.") }
 		return AVPlayer(url: url)
 	}()
 	
 	static let getFlushAudioPlayer: AVPlayer = {
-		guard let url = Bundle.main.url(forResource: "toilet-flush-2", withExtension: "mp3") else { fatalError("Failed to find sound file.") }
+		let file = AudioFile.flush
+		guard let url = Bundle.main.url(forResource: file.filename, withExtension: file.fileExtension) else { fatalError("Failed to find sound file.") }
 		return AVPlayer(url: url)
 	}()
 }
