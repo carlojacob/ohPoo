@@ -42,7 +42,6 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
     1. Manually start timer on Timer screen.
     1. Add different filling Timer screen image options (e.g. Roses, Children to school, "2", monarch on a throne)
 1. Make duration selection a pickerwheel, including seconds? This would require an overhaul of the numbers being passed around.
-1. Store audio filenames in enum, rather than as hardcoded strings.
 1. Add loading view, for any delay (this is unlikely to ever show, unless we add server interactions).
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
 1. Extract custom font sizes into separate files.

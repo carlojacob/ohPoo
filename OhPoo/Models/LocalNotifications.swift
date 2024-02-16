@@ -30,8 +30,9 @@ class LocalNotifications {
 		
 		// Setup custom sound for notification, or use default
 		var sound: UNNotificationSound
-		let soundName = "toilet-flush-2-short"
-		let soundExtension = "mp3"
+		let flushSound: AudioFile = .flushShort
+		let soundName = flushSound.filename
+		let soundExtension = flushSound.fileExtension
 		if let _ = Bundle.main.url(forResource: soundName, withExtension: soundExtension) {
 			sound = UNNotificationSound(named: UNNotificationSoundName("\(soundName).\(soundExtension)"))
 		} else { sound = UNNotificationSound.default }
