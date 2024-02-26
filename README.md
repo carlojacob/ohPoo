@@ -53,10 +53,13 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Notification permissions:
     1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
     1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
-1. Research whether navigating from my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
 1. Periodic alerts/sounds to remind the user about their business.
 1. Different timers/themes. e.g. Kitchen/cooking, task completion.
 1. Store user settings on device.
 1. Add launch screen file.
+
+### Unknown questions to answer
+1. Research whether navigating from my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
+1. If I background the app during a timer, then I kill the app from the background state, do I still receive a push notification?
 
 ### Known Issues/Bugs
