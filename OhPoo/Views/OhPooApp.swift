@@ -11,11 +11,32 @@ import SwiftUI
 struct OhPooApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	@StateObject var pooTimer = PooTimer()
+	@StateObject var pooSettingsStore = PooSettingsStore()
 	
     var body: some Scene {
         WindowGroup {
-            HomeView()
-				.environmentObject(pooTimer)
+			HomeView(
+				saveSettingsToSystemAction: { settingsToSave in
+					Task {
+						do {
+							try await pooSettingsStore.save(pooTimerSettings: settingsToSave)
+						} catch {
+							fatalError(error.localizedDescription)
+						}
+					}
+				},
+				pooTimerSettings: $pooSettingsStore.pooTimerSettings
+			)
+			.environmentObject(pooTimer)
+			.task {
+				do {
+					try await pooSettingsStore.load()
+					pooTimer.timerDuration = pooSettingsStore.pooTimerSettings.timerDuration
+					pooTimer.timerSoundOn = pooSettingsStore.pooTimerSettings.timerSoundOn
+				} catch {
+					fatalError(error.localizedDescription)
+				}
+			}
         }
     }
 }

@@ -31,6 +31,8 @@
 		235ED7B82B7FE27700EEFEE2 /* HomeContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7B72B7FE27700EEFEE2 /* HomeContentsView.swift */; };
 		235ED7BA2B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7B92B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift */; };
 		235ED7BC2B7FF6E600EEFEE2 /* PooTimerContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7BB2B7FF6E600EEFEE2 /* PooTimerContentsView.swift */; };
+		235ED7BE2B8D146A00EEFEE2 /* PooSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7BD2B8D146A00EEFEE2 /* PooSettingsStore.swift */; };
+		235ED7C02B8D18EE00EEFEE2 /* PooTimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235ED7BF2B8D18EE00EEFEE2 /* PooTimerSettings.swift */; };
 		23D144002B7D080700A4235B /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */; };
 		23D144022B7D6E2600A4235B /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D144012B7D6E2600A4235B /* AudioFile.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		235ED7B72B7FE27700EEFEE2 /* HomeContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentsView.swift; sourceTree = "<group>"; };
 		235ED7B92B7FEE3900EEFEE2 /* DynamicOrientationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicOrientationStackView.swift; sourceTree = "<group>"; };
 		235ED7BB2B7FF6E600EEFEE2 /* PooTimerContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTimerContentsView.swift; sourceTree = "<group>"; };
+		235ED7BD2B8D146A00EEFEE2 /* PooSettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooSettingsStore.swift; sourceTree = "<group>"; };
+		235ED7BF2B8D18EE00EEFEE2 /* PooTimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooTimerSettings.swift; sourceTree = "<group>"; };
 		23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		23D144012B7D6E2600A4235B /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,10 +178,12 @@
 			children = (
 				235A0B262B69C0D100C72155 /* AVPlayer+getAudio.swift */,
 				2328092E2B7424CC00F0A1B1 /* LocalNotifications.swift */,
+				235ED7BD2B8D146A00EEFEE2 /* PooSettingsStore.swift */,
 				235A0B182B6950C300C72155 /* PooTheme.swift */,
 				235A0B1C2B6950F200C72155 /* PooTimer.swift */,
 				23D143FF2B7D080700A4235B /* TrailingIconLabelStyle.swift */,
 				23D144012B7D6E2600A4235B /* AudioFile.swift */,
+				235ED7BF2B8D18EE00EEFEE2 /* PooTimerSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,9 +356,11 @@
 				235A0B1F2B69512600C72155 /* PooTimerView.swift in Sources */,
 				235A0B252B6952B100C72155 /* SettingsView.swift in Sources */,
 				235A0B1D2B6950F200C72155 /* PooTimer.swift in Sources */,
+				235ED7BE2B8D146A00EEFEE2 /* PooSettingsStore.swift in Sources */,
 				232809382B7A86EF00F0A1B1 /* FillingImageView.swift in Sources */,
 				235A0B212B69516A00C72155 /* TimerArc.swift in Sources */,
 				235A0B232B69523A00C72155 /* CountdownView.swift in Sources */,
+				235ED7C02B8D18EE00EEFEE2 /* PooTimerSettings.swift in Sources */,
 				23D144022B7D6E2600A4235B /* AudioFile.swift in Sources */,
 				235ED7BC2B7FF6E600EEFEE2 /* PooTimerContentsView.swift in Sources */,
 				232809362B7A6C7900F0A1B1 /* FillingView.swift in Sources */,
