@@ -31,8 +31,8 @@ struct OhPooApp: App {
 			.task {
 				do {
 					try await pooSettingsStore.load()
-					pooTimer.timerDuration = pooSettingsStore.pooTimerSettings.timerDuration
-					pooTimer.timerSoundOn = pooSettingsStore.pooTimerSettings.timerSoundOn
+					pooTimer.pooTimerSettings.timerDuration = pooSettingsStore.pooTimerSettings.timerDuration
+					pooTimer.pooTimerSettings.timerSoundOn = pooSettingsStore.pooTimerSettings.timerSoundOn
 				} catch {
 					fatalError(error.localizedDescription)
 				}

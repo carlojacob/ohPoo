@@ -102,7 +102,7 @@ struct HomeView: View {
 	private func onSettingsButtonTapped() {
 		isSettingsDisplayed = true
 		tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
-		tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
+		tempSettingsValues.timerSoundOn = pooTimer.pooTimerSettings.timerSoundOn
 	}
 	
 	private func onDismissSettings() {
@@ -110,7 +110,7 @@ struct HomeView: View {
 			saveButtonPressed = false
 		} else {
 			pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
-			pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
+			pooTimer.pooTimerSettings.timerSoundOn = tempSettingsValues.timerSoundOn
 		}
 	}
 	
@@ -118,8 +118,8 @@ struct HomeView: View {
 		isSettingsDisplayed = false
 		saveButtonPressed = true
 		homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
-		homeScreenValues.soundOn = pooTimer.timerSoundOn
-		let settingsToSave = PooTimerSettings(timerDuration: pooTimer.timerDuration, timerSoundOn: pooTimer.timerSoundOn)
+		homeScreenValues.soundOn = pooTimer.pooTimerSettings.timerSoundOn
+		let settingsToSave = PooTimerSettings(timerDuration: pooTimer.pooTimerSettings.timerDuration, timerSoundOn: pooTimer.pooTimerSettings.timerSoundOn)
 		saveSettingsToSystemAction(settingsToSave)
 	}
 }

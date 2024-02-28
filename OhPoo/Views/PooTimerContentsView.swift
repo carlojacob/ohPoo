@@ -25,7 +25,7 @@ struct PooTimerContentsView: View {
 						.padding(6)
 				}
 				.overlay {
-					TimerArc(endTime: pooTimer.timerDuration, currentTime: pooTimer.secondsRemaining)
+					TimerArc(endTime: pooTimer.pooTimerSettings.timerDuration, currentTime: pooTimer.secondsRemaining)
 						.rotation(Angle(degrees: -90))
 						.stroke(pooTimer.theme.color, lineWidth: 15)
 				}

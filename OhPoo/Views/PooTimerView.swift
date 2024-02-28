@@ -43,7 +43,7 @@ struct PooTimerView: View {
 	
 	@MainActor
 	private func startPoo() {
-		pooTimer.reset(timerDuration: pooTimer.timerDuration)
+		pooTimer.reset(timerDuration: pooTimer.pooTimerSettings.timerDuration)
 		pooTimer.startPoo()
 	}
 	
@@ -54,5 +54,5 @@ struct PooTimerView: View {
 }
 
 #Preview {
-	PooTimerView().environmentObject(PooTimer(timerDuration: 180))
+	PooTimerView().environmentObject(PooTimer())
 }
