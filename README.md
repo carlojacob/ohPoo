@@ -25,6 +25,9 @@ To be added.
 ## Learnings
 One wish for this app was to play an audio file at the end of the user's timer, even while the app was backgrounded. I learned that although it is possible to continue an audio session into a background state (I implemented this for the starting audio file), it is not possible to start an audio session from a backgrounded state without user/server intervention or a hacked solution[^1]. These solutions include:
 
+> [!NOTE]
+> The simulator will play delayed audio, although a real device will not.
+
 [^1]: The simulator will play delayed audio, although a real device will not.
 
 | Solution | Description |
