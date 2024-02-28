@@ -16,7 +16,7 @@ struct FillingImageView: View {
 		Text("💩")
 			.font(timerScreenEmojiFont)
 			.overlay(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-				FillingView(endTime: pooTimer.timerDuration, remainingTime: pooTimer.secondsRemaining)
+				FillingView(endTime: pooTimer.pooTimerSettings.timerDuration, remainingTime: pooTimer.secondsRemaining)
 					.foregroundColor(pooTimer.theme.lightColor)
 			}
 			.overlay {

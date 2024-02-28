@@ -27,7 +27,7 @@ struct SettingsView: View {
 					}
 				}
 				Section("Timer Sounds") {
-					Toggle("Sounds \(pooTimer.timerSoundOn ? "on" : "off")", isOn: $pooTimer.timerSoundOn)
+					Toggle("Sounds \(pooTimer.pooTimerSettings.timerSoundOn ? "on" : "off")", isOn: $pooTimer.pooTimerSettings.timerSoundOn)
 				}
 			}
 			.fontWeight(.semibold)

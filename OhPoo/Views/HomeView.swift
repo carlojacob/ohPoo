@@ -29,10 +29,12 @@ private struct TempSettingsValues {
 
 struct HomeView: View {
 	let localNotifications = LocalNotifications()
+	let saveSettingsToSystemAction: (_ pooTimerSettings: PooTimerSettings) -> Void
 	
 	@Environment(\.scenePhase) private var scenePhase
 	
 	@EnvironmentObject var pooTimer: PooTimer
+	@Binding var pooTimerSettings: PooTimerSettings
 	
 	@State private var isSettingsDisplayed: Bool = false
 	@State private var saveButtonPressed: Bool = false
@@ -82,6 +84,10 @@ struct HomeView: View {
 			// Request/check permission to send notifications.
 			localNotifications.registerLocalNotification()
 		}
+		.onChange(of: pooTimerSettings) {
+			homeScreenValues.timeInMinutes = pooTimerSettings.timerDuration / 60
+			homeScreenValues.soundOn = pooTimerSettings.timerSoundOn
+		}
 		.onChange(of: scenePhase, initial: false) { _, newState in
 			// Remove any pending notifications when we return to active.
 			let toActive = newState == .active
@@ -96,7 +102,7 @@ struct HomeView: View {
 	private func onSettingsButtonTapped() {
 		isSettingsDisplayed = true
 		tempSettingsValues.timerDurationInMinutesAsDouble = pooTimer.timerDurationInMinutesAsDouble
-		tempSettingsValues.timerSoundOn = pooTimer.timerSoundOn
+		tempSettingsValues.timerSoundOn = pooTimer.pooTimerSettings.timerSoundOn
 	}
 	
 	private func onDismissSettings() {
@@ -104,7 +110,7 @@ struct HomeView: View {
 			saveButtonPressed = false
 		} else {
 			pooTimer.timerDurationInMinutesAsDouble = tempSettingsValues.timerDurationInMinutesAsDouble
-			pooTimer.timerSoundOn = tempSettingsValues.timerSoundOn
+			pooTimer.pooTimerSettings.timerSoundOn = tempSettingsValues.timerSoundOn
 		}
 	}
 	
@@ -112,10 +118,16 @@ struct HomeView: View {
 		isSettingsDisplayed = false
 		saveButtonPressed = true
 		homeScreenValues.timeInMinutes = Int(pooTimer.timerDurationInMinutesAsDouble)
-		homeScreenValues.soundOn = pooTimer.timerSoundOn
+		homeScreenValues.soundOn = pooTimer.pooTimerSettings.timerSoundOn
+		let settingsToSave = PooTimerSettings(timerDuration: pooTimer.pooTimerSettings.timerDuration, timerSoundOn: pooTimer.pooTimerSettings.timerSoundOn)
+		saveSettingsToSystemAction(settingsToSave)
 	}
 }
 
 #Preview {
-	HomeView().environmentObject(PooTimer())
+	HomeView(
+		saveSettingsToSystemAction: { pooTimerSettings in },
+		pooTimerSettings: .constant(PooTimerSettings.defaultData)
+	)
+	.environmentObject(PooTimer())
 }
