@@ -23,7 +23,9 @@ To be added.
 <p align="center">From left to right: Home Screen, Settings Screen, Timer Screen.</p>
 
 ## Learnings
-One wish for this app was to play an audio file at the end of the user's timer, even while the app was backgrounded. I learned that although it is possible to continue an audio session into a background state (I implemented this for the starting audio file), it is not possible to start an audio session from a backgrounded state without user/server intervention or a hacked solution. These solutions include:
+One wish for this app was to play an audio file at the end of the user's timer, even while the app was backgrounded. I learned that although it is possible to continue an audio session into a background state (I implemented this for the starting audio file), it is not possible to start an audio session from a backgrounded state without user/server intervention or a hacked solution[^1]. These solutions include:
+
+[^1]: The simulator will play delayed audio, although a real device will not.
 
 | Solution | Description |
 | -------- | ----------- |
@@ -31,9 +33,7 @@ One wish for this app was to play an audio file at the end of the user's timer, 
 | Background Fetch         | Can be used to start up a background task, however the trigger timing may not be precise and it may not occur at all, if system resources are limited. |
 | Continuous silent audio  | A continuously playing silent audio file for the duration of the timer. This solution is "hacky" and not recommended: it may impact audio from other applications and it will impact phone battery life. |
 
-I discovered that I can use a `UILocalNotification` to trigger a local push notification, including custom audio. I am attempting to implement this.
-
-**Note**: the simulator will play delayed audio, although a real device will not.
+I discovered that I can use a `UILocalNotification` to trigger a local push notification, including custom audio. I implemented this solution.
 
 ## Future Work
 1. Update "Back" button title to "Home" on Timer screen.
@@ -63,3 +63,4 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. If I background the app during a timer, then I kill the app from the background state, do I still receive a push notification?
 
 ### Known Issues/Bugs
+1. After changing device orientation on the Timer screen, the space between the two main elements is reduced.
