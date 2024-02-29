@@ -31,8 +31,9 @@ struct SettingsView: View {
 				}
 			}
 			.fontWeight(.semibold)
-			.foregroundStyle(pooTimer.theme.color)
+			Link("Privacy Policy", destination: URL(string: "https://docs.google.com/document/d/e/2PACX-1vREizHXLyevX6s9bW4261AlwuaoOO2dHk3MjddNHzlJ9pLhX1s_Fj3oMju6DFR1A3nfyGeibqdc9_xz/pub")!)
 		}
+		.foregroundStyle(pooTimer.theme.color)
 	}
 }
 
