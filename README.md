@@ -16,7 +16,7 @@ To be added.
 <p align="center">
   <img src="https://i.imgur.com/2vdwPW4.png" alt="Home Screen" width="200"/>
   &nbsp
-  <img src="https://i.imgur.com/teE2pBS.png" alt="Home Screen" width="200"/>
+  <img src="https://i.imgur.com/jXgeDxx.png" alt="Home Screen" width="200"/>
   &nbsp
   <img src="https://i.imgur.com/jeH6Vh2.png" alt="Home Screen" width="200"/>
 </p>
