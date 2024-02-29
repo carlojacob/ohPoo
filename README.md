@@ -58,6 +58,7 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Different timers/themes. e.g. Kitchen/cooking, task completion.
 1. Add launch screen file.
 1. Handle settings load/save errors.
+1. Restore iPad to supported destinations, when sizing is updated.
 
 ### Unknown questions to answer
 1. Research whether navigating from my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
