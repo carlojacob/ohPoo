@@ -13,7 +13,7 @@ struct FillingView: Shape {
 	let remainingTime: Int
 	
 	func path(in rect: CGRect) -> Path {
-		let rectangleHeightMultiplier = max(0.85 * (Double(remainingTime) / Double(endTime)), 0.0)
+		let rectangleHeightMultiplier = max(0.94 * (Double(remainingTime) / Double(endTime)), 0.0)
 		let rectangle = CGRect(x: rect.minX, y: rect.maxY, width: rect.width, height: -rect.height * rectangleHeightMultiplier)
 		return Path { path in
 			path.addRect(rectangle)
