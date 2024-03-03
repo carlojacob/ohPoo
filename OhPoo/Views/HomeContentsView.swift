@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct HomeContentsView: View {
-	let homeScreenEmojiFont: Font = .custom("homeScreenEmoji", size: 250)
 	let homeScreenValues: HomeScreenValues
 	
 	@EnvironmentObject var pooTimer: PooTimer
 	
     var body: some View {
 		Spacer()
-		Text("💩")
-			.font(homeScreenEmojiFont)
+		Image("PooImage")
+			.resizable()
+			.scaledToFit()
+			.scaleEffect(CGSize(width: 0.8, height: 0.8))
 		Spacer()
 		VStack {
 			NavigationLink {
