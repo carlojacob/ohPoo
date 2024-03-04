@@ -45,9 +45,8 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Make duration selection a pickerwheel, including seconds? This would require an overhaul of the numbers being passed around.
 1. Add loading view, for any delay (this is unlikely to ever show, unless we add server interactions).
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
-1. Extract custom font sizes into separate files.
 1. Reactive sizing:
-    1. Home screen emoji font size, e.g. minimum of screen width or height plus padding.
+    1. Home screen image size, e.g. minimum of screen width or height plus padding.
     1. Remaining time on Timer screen.
     1. Including max and min values for images and text—including consideration for iPad screens.
 1. Change Timer value to text after time has expired.
