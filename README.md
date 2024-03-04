@@ -14,11 +14,11 @@ To be added.
 
 ## Screenshots
 <p align="center">
-  <img src="https://i.imgur.com/2vdwPW4.png" alt="Home Screen" width="200"/>
+  <img src="https://i.imgur.com/gcxBN51.png" alt="Home Screen" width="200"/>
   &nbsp
-  <img src="https://i.imgur.com/jXgeDxx.png" alt="Home Screen" width="200"/>
+  <img src="https://i.imgur.com/jXgeDxx.png" alt="Settings Screen" width="200"/>
   &nbsp
-  <img src="https://i.imgur.com/jeH6Vh2.png" alt="Home Screen" width="200"/>
+  <img src="https://i.imgur.com/hK01QjH.png" alt="Timer Screen" width="200"/>
 </p>
 <p align="center">From left to right: Home Screen, Settings Screen, Timer Screen.</p>
 
