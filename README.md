@@ -9,6 +9,9 @@ This app was built to reduce time-wasting while using the bathroom. Inspired by 
 
 Look out for more updates to come!
 
+### 📱 App Store Download Link
+https://apps.apple.com/us/app/oh-poo/id6478238700
+
 ## App Structure
 To be added.
 
@@ -58,6 +61,9 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 1. Add launch screen file.
 1. Handle settings load/save errors.
 1. Restore iPad to supported destinations, when sizing is updated.
+1. Add poo facts while timer counts down.
+1. Add support for iOS 16.
+1. Add stopwatch mode, with ability to save duration and date/time. This would be useful for people that suffer from Crohn's disease.
 
 ### Unknown questions to answer
 1. Research whether navigating from my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
@@ -69,5 +75,5 @@ I discovered that I can use a `UILocalNotification` to trigger a local push noti
 ## Special Thanks
 Thanks to the following for your contributions to the production of this application.
 
-1. Vince Romani, Lydia McLaughlin and Allyson Vakhovskaya&mdash;former colleagues that provided feedback throughout the development process.
+1. Vince Romani, Andres Llerena, Lydia McLaughlin and Allyson Vakhovskaya&mdash;former colleagues that provided feedback throughout the development process.
 1. [Sound Jay](https://www.soundjay.com/index.html)&mdash;the source of all sound effects in the application, used in accordance with their [Terms of Service](https://www.soundjay.com/tos.html).
