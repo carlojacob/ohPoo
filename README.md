@@ -40,37 +40,51 @@ One wish for this app was to play an audio file at the end of the user's timer, 
 I discovered that I can use a `UILocalNotification` to trigger a local push notification, including custom audio. I implemented this solution.
 
 ## Future Work
-1. Update "Back" button title to "Home" on Timer screen.
+### Version 1.1
 1. Allow initial timer arc to show a small white section at the top.
-1. Settings additions:
-    1. Manually start timer on Timer screen.
-    1. Add different filling Timer screen image options (e.g. Roses, Children to school, "2", monarch on a throne)
-1. Make duration selection a pickerwheel, including seconds? This would require an overhaul of the numbers being passed around.
-1. Add loading view, for any delay (this is unlikely to ever show, unless we add server interactions).
 1. Set the initial value throughout the app at one source, instead of using hardcoded "3" minutes or "180" seconds in various places.
 1. Reactive sizing:
     1. Home screen image size, e.g. minimum of screen width or height plus padding.
     1. Remaining time on Timer screen.
     1. Including max and min values for images and text—including consideration for iPad screens.
+    1. Restore iPad to supported destinations, when sizing is updated.
 1. Change Timer value to text after time has expired.
+1. Periodic alerts/sounds to remind the user about their business.
+1. Add launch screen file.
+1. Comments from Andres:
+    1. Look into using UserDefault to store settings. This is new to me. Check out an example [here](https://www.hackingwithswift.com/books/ios-swiftui/storing-user-settings-with-userdefaults).
+    1. Move the OhPooApp class at the same level of AppDelegate in the file hierarchy to make it easier to find. Alphabetize filenames.
+    1. Scope TBD&mdash;Ideally, Views should only show info, not handle any type of logic. Have you considered moving logic away from the views? A common practice is to have a Presenter/ViewModel that is referenced by each View, so all the state comes from the Presenter/ViewModel.
+    1. Scope TBD&mdash;Another common practice is to provide dependencies instead of creating them inside the Views. For example, in HomeView, you are creating an instance of LocalNotifications there. It would be preferred to provide it in the init constructor. This would help to make that logic testable with unit tests. Maybe [this](https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/#:~:text=Why%20should%20I%20use%20dependency%20injection%3F) can help to understand more about the technique (dependency injection).
+
+### Later Versions
+1. Update "Back" button title to "Home" on Timer screen.
+1. Settings additions:
+    1. Manually start timer on Timer screen.
+    1. Add different filling Timer screen image options (e.g. Roses, Children to school, "2", monarch on a throne)
+1. Make duration selection a pickerwheel, including seconds? This would require an overhaul of the numbers being passed around.
+1. Add loading view, for any delay (this is unlikely to ever show, unless we add server interactions).
+
 1. Notification permissions:
     1. If user declines after the first request, let them know the consequence, and how to turn on Notifications in Settings. Add a link to Settings, if possible.
     1. Pop up permission alert if the user previously declined to receive notifications (not desirable unless a user can select not to be asked again).
-1. Periodic alerts/sounds to remind the user about their business.
-1. Different timers/themes. e.g. Kitchen/cooking, task completion.
-1. Add launch screen file.
+1. Different timers/themes. e.g. Kitchen/cooking; task completion; kids' TV, nap, poo distinguished from adults.
 1. Handle settings load/save errors.
-1. Restore iPad to supported destinations, when sizing is updated.
 1. Add poo facts while timer counts down.
 1. Add support for iOS 16.
 1. Add stopwatch mode, with ability to save duration and date/time. This would be useful for people that suffer from Crohn's disease.
+1. Add accessibility features.
+1. Comments from Andres:
+    1. Scope TBD&mdash;Ideally, Views should only show info, not handle any type of logic. Have you considered moving logic away from the views? A common practice is to have a Presenter/ViewModel that is referenced by each View, so all the state comes from the Presenter/ViewModel.
+    1. Scope TBD&mdash;Another common practice is to provide dependencies instead of creating them inside the Views. For example, in HomeView, you are creating an instance of LocalNotifications there. It would be preferred to provide it in the init constructor. This would help to make that logic testable with unit tests. Maybe [this](https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/#:~:text=Why%20should%20I%20use%20dependency%20injection%3F) can help to understand more about the technique (dependency injection).
+    1. Make time and sound icon on Home screen tappable to update values. I will hold off on this until there are more options in Settings, as it would make that sheet (with some skills displayed) redundant.
 
 ### Unknown questions to answer
 1. Research whether navigating from my app to another via the "Back to [App]" button in the top left, or via a push notif, will impact the behavior of my scene change code. It isn't expected as I only check whether I am in the `.active` state.
-1. If I background the app during a timer, then I kill the app from the background state, do I still receive a push notification?
 
 ## Known Issues/Bugs
 1. After changing device orientation on the Timer screen, the space between the two main elements is reduced.
+1. If I background the app during a timer, then I kill the app from the background state, I still receive a push notification.
 
 ## Special Thanks
 Thanks to the following for your contributions to the production of this application.
